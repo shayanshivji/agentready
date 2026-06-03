@@ -1,0 +1,142 @@
+[
+  {
+    "id": "6017387f-677e-4f69-89b5-42bfa40bf2be",
+    "slug": "stanley",
+    "name": "Stanley 1913",
+    "domain": "stanley1913.com",
+    "archetype": "Brand",
+    "target_curve": "L3",
+    "target_band": [
+      65.0,
+      75.0
+    ],
+    "latest_scan": {
+      "id": "0daacf48-87ff-4bdc-8298-ccd91e0b8b52",
+      "started_at": "2026-06-03T17:20:31.554124",
+      "completed_at": "2026-06-03T17:20:31.675420",
+      "status": "completed",
+      "total_score": 34.67,
+      "band": "Agent-Exposed"
+    }
+  },
+  {
+    "id": "c8bac468-ed41-465d-a0cc-dff08b749bd2",
+    "slug": "yeti",
+    "name": "Yeti",
+    "domain": "yeti.com",
+    "archetype": "Brand",
+    "target_curve": "L3",
+    "target_band": [
+      65.0,
+      75.0
+    ],
+    "latest_scan": {
+      "id": "5c0a7ed9-48fd-42c7-8ef5-d2f63afa6015",
+      "started_at": "2026-06-03T17:20:34.379719",
+      "completed_at": "2026-06-03T17:20:34.484306",
+      "status": "completed",
+      "total_score": 14.83,
+      "band": "Agent-Blind"
+    }
+  },
+  {
+    "id": "53523844-74a4-4c0a-9a58-03e60103f459",
+    "slug": "owala",
+    "name": "Owala",
+    "domain": "owala.com",
+    "archetype": "Brand",
+    "target_curve": "L3",
+    "target_band": [
+      65.0,
+      75.0
+    ],
+    "latest_scan": {
+      "id": "41e2a481-8762-4c36-a198-9acec9dfa0d8",
+      "started_at": "2026-06-03T17:20:36.768591",
+      "completed_at": "2026-06-03T17:20:36.886433",
+      "status": "completed",
+      "total_score": 20.33,
+      "band": "Agent-Exposed"
+    }
+  },
+  {
+    "id": "09ce3118-0c56-4f71-97fc-6af7a8938583",
+    "slug": "allbirds",
+    "name": "Allbirds",
+    "domain": "allbirds.com",
+    "archetype": "Brand",
+    "target_curve": "L3",
+    "target_band": [
+      65.0,
+      75.0
+    ],
+    "latest_scan": {
+      "id": "b4737578-3fd0-4972-af40-86a1d6553ed4",
+      "started_at": "2026-06-03T17:20:39.253298",
+      "completed_at": "2026-06-03T17:20:39.466271",
+      "status": "completed",
+      "total_score": 33.0,
+      "band": "Agent-Exposed"
+    }
+  },
+  {
+    "id": "010eb781-30e5-4241-910c-e315d2778fd2",
+    "slug": "lululemon",
+    "name": "Lululemon",
+    "domain": "lululemon.com",
+    "archetype": "Brand",
+    "target_curve": "L3",
+    "target_band": [
+      65.0,
+      75.0
+    ],
+    "latest_scan": {
+      "id": "a05e540a-4407-4206-bf7b-9fc7dbf1f720",
+      "started_at": "2026-06-03T17:20:41.677118",
+      "completed_at": "2026-06-03T17:20:41.781810",
+      "status": "completed",
+      "total_score": 11.0,
+      "band": "Agent-Blind"
+    }
+  },
+  {
+    "id": "5c124814-171d-4a3e-aac6-bb888ecc9d4a",
+    "slug": "pandora",
+    "name": "Pandora",
+    "domain": "pandora.net",
+    "archetype": "Brand",
+    "target_curve": "L3",
+    "target_band": [
+      65.0,
+      75.0
+    ],
+    "latest_scan": {
+      "id": "f5526e4e-e3f4-4195-8280-a16f52ad588a",
+      "started_at": "2026-06-03T17:20:44.284436",
+      "completed_at": "2026-06-03T17:20:44.372976",
+      "status": "completed",
+      "total_score": 9.83,
+      "band": "Agent-Blind"
+    }
+  },
+  {
+    "id": "a9aa0f8c-6f67-4639-b957-bd0f7650b0ae",
+    "slug": "mcmaster",
+    "name": "McMaster-Carr",
+    "domain": "mcmaster.com",
+    "archetype": "B2B Distributor",
+    "target_curve": "L4",
+    "target_band": [
+      70.0,
+      80.0
+    ],
+    "latest_scan": {
+      "id": "13a2fe74-44e9-4b2e-910c-0b7fe97586d0",
+      "started_at": "2026-06-03T17:20:46.788256",
+      "completed_at": "2026-06-03T17:20:46.882994",
+      "status": "completed",
+      "total_score": 22.17,
+      "band": "Agent-Exposed"
+    }
+  }
+]

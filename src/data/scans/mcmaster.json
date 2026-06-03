@@ -1,0 +1,512 @@
+{
+  "scan": {
+    "id": "13a2fe74-44e9-4b2e-910c-0b7fe97586d0",
+    "brand": {
+      "id": "a9aa0f8c-6f67-4639-b957-bd0f7650b0ae",
+      "slug": "mcmaster",
+      "name": "McMaster-Carr"
+    },
+    "url": "https://www.mcmaster.com",
+    "mode": "receipts",
+    "status": "completed",
+    "started_at": "2026-06-03T17:20:46.788256",
+    "completed_at": "2026-06-03T17:20:46.882994",
+    "total_score": 22.17,
+    "band": "Agent-Exposed",
+    "dimensions": [
+      {
+        "code": "D1",
+        "name": "Product Data Quality",
+        "weight": 1.4,
+        "raw_subtotal": 6.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 8.4,
+        "sub_criteria": [
+          {
+            "code": "1a",
+            "label": "Structured product schema",
+            "score": 2.5,
+            "evidence": [
+              "probe:probe_mcmaster_pdp.html"
+            ],
+            "notes": "Product schema present; Offer present; Variants/SKUs surfaced; GTIN exposed; Dimensions/weight exposed"
+          },
+          {
+            "code": "1b",
+            "label": "Real-time inventory + price",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No public products.json endpoint"
+          },
+          {
+            "code": "1c",
+            "label": "Attribute richness",
+            "score": 2.5,
+            "evidence": [],
+            "notes": "46+ structured attributes \u2014 fully agent-comparable"
+          },
+          {
+            "code": "1d",
+            "label": "Cross-language / cross-region parity",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No platform inheritance; outside-in cannot confirm parity"
+          },
+          {
+            "code": "1e",
+            "label": "Negative / exclusion data",
+            "score": 1.0,
+            "evidence": [],
+            "notes": "Negative/exclusion attrs (structured): lead-free"
+          }
+        ]
+      },
+      {
+        "code": "D2",
+        "name": "Agent Discoverability (AEO)",
+        "weight": 1.0,
+        "raw_subtotal": 9.17,
+        "max_subtotal": 12.5,
+        "weighted_score": 9.17,
+        "sub_criteria": [
+          {
+            "code": "2a",
+            "label": "Citation rate",
+            "score": 2.5,
+            "evidence": [],
+            "notes": "Agent panel: 100% L1 citation rate (4 journeys across 4 agents)"
+          },
+          {
+            "code": "2b",
+            "label": "Citation accuracy",
+            "score": 2.5,
+            "evidence": [],
+            "notes": "Agent panel: 100% of L1 citations on canonical domain; JSON-LD bonus where present"
+          },
+          {
+            "code": "2c",
+            "label": "Sentiment in citations",
+            "score": 2.0,
+            "evidence": [],
+            "notes": "Agent panel: mean sentiment 0.83 across 9 cited journeys"
+          },
+          {
+            "code": "2d",
+            "label": "Robots & agent policies",
+            "score": 1.0,
+            "evidence": [],
+            "notes": "explicit allow for 7 agent UA(s)"
+          },
+          {
+            "code": "2e",
+            "label": "Content freshness",
+            "score": 1.5,
+            "evidence": [],
+            "notes": "Sitemap shows 2026 last-modified entries (5 urls)"
+          },
+          {
+            "code": "2f",
+            "label": "Content ecosystem coverage",
+            "score": 1.5,
+            "evidence": [],
+            "notes": "3/5 content layers visible in PDP; agent-panel evidence augments score"
+          }
+        ]
+      },
+      {
+        "code": "D3",
+        "name": "Transactional API Readiness",
+        "weight": 1.4,
+        "raw_subtotal": 2.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 2.8,
+        "sub_criteria": [
+          {
+            "code": "3a",
+            "label": "MCP server availability",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No MCP endpoint detected"
+          },
+          {
+            "code": "3b",
+            "label": "A2A protocol compliance",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No /.well-known/agent.json (A2A discovery doc)"
+          },
+          {
+            "code": "3c",
+            "label": "UCP readiness",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No /.well-known/ucp profile"
+          },
+          {
+            "code": "3d",
+            "label": "ACP (Agentic Commerce Protocol)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Capability-vs-activation gap; no agent-panel evidence yet"
+          },
+          {
+            "code": "3e",
+            "label": "AP2 + API ergonomics",
+            "score": 2.0,
+            "evidence": [
+              "probe:latency_samples"
+            ],
+            "notes": "Latency p95 = 131 ms (n=10); AP2 not confirmed outside-in"
+          }
+        ]
+      },
+      {
+        "code": "D4",
+        "name": "Mandate Resolution",
+        "weight": 1.0,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "4a",
+            "label": "Agent + mandate identification",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Agent panel: 2 L3 mandate journeys, 2 refused; mandate success rate 0%"
+          },
+          {
+            "code": "4b",
+            "label": "Mandate-aware pricing",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Mandate semantics absent universally; agent-panel L3 evidence below"
+          },
+          {
+            "code": "4c",
+            "label": "Standing-intent fulfillment",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Mandate semantics absent universally; agent-panel L3 evidence below"
+          },
+          {
+            "code": "4d",
+            "label": "Take-rate / monetization on referrals",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No public commercial agent-platform link"
+          },
+          {
+            "code": "4e",
+            "label": "Dynamic micro-bundling against mandates",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No mandate exists to bundle against"
+          }
+        ]
+      },
+      {
+        "code": "D5",
+        "name": "Trust, Identity & KYA",
+        "weight": 1.0,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "5a",
+            "label": "Authorization proof",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No MCP endpoint to enforce KYA on"
+          },
+          {
+            "code": "5b",
+            "label": "Intent proof (cart mandate)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Co-signed cart mandate requires agent panel (Sprint 3)"
+          },
+          {
+            "code": "5c",
+            "label": "Accountability proof (audit trail)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No public agent-purchase audit trail observable"
+          },
+          {
+            "code": "5d",
+            "label": "Agent-aware fraud detection",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Not observable outside-in; expert-layer"
+          },
+          {
+            "code": "5e",
+            "label": "Standards posture & trust pillars",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No standards posture observable"
+          }
+        ]
+      },
+      {
+        "code": "D6",
+        "name": "Service, Returns & Disputes",
+        "weight": 1.2,
+        "raw_subtotal": 1.5,
+        "max_subtotal": 12.5,
+        "weighted_score": 1.8,
+        "sub_criteria": [
+          {
+            "code": "6a",
+            "label": "Machine-parseable return policy",
+            "score": 1.5,
+            "evidence": [],
+            "notes": "MerchantReturnPolicy referenced inside Offer (less structured)"
+          },
+          {
+            "code": "6b",
+            "label": "Agent-initiated returns",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No UCP profile \u2192 no agent-callable return surface"
+          },
+          {
+            "code": "6c",
+            "label": "Dispute resolution protocol",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No A2A dispute-escalation endpoint observed"
+          },
+          {
+            "code": "6d",
+            "label": "Service SLAs in structured form",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No machine-readable SLAs surfaced"
+          },
+          {
+            "code": "6e",
+            "label": "Agent-readable post-purchase data",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No agent-readable order-status surface declared"
+          }
+        ]
+      },
+      {
+        "code": "D7",
+        "name": "Loyalty & Identity Re-architecture",
+        "weight": 1.0,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "7a",
+            "label": "Agent-callable loyalty API",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Loyalty program is human-only / no API surface"
+          },
+          {
+            "code": "7b",
+            "label": "Programmable rewards",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No mandate-aware reward mechanic observable"
+          },
+          {
+            "code": "7c",
+            "label": "Delegated authentication",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No delegated-auth surface observable"
+          },
+          {
+            "code": "7d",
+            "label": "Cross-brand identity",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No cross-brand identity / loyalty interoperability declared"
+          },
+          {
+            "code": "7e",
+            "label": "Account portability",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No portability mechanism observable"
+          }
+        ]
+      },
+      {
+        "code": "D8",
+        "name": "Agent Experience Design",
+        "weight": 1.0,
+        "raw_subtotal": 3.5,
+        "max_subtotal": 12.5,
+        "weighted_score": 3.5,
+        "sub_criteria": [
+          {
+            "code": "8a",
+            "label": "Latency",
+            "score": 2.5,
+            "evidence": [
+              "probe:latency_samples"
+            ],
+            "notes": "p95 = 131 ms (n=10)"
+          },
+          {
+            "code": "8b",
+            "label": "Idempotency & retries",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No agent-callable API \u2192 no observable idempotency contract"
+          },
+          {
+            "code": "8c",
+            "label": "Error semantics",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No agent-callable surface to evaluate"
+          },
+          {
+            "code": "8d",
+            "label": "Agent-friendly UI fallback",
+            "score": 1.0,
+            "evidence": [],
+            "notes": "JSON-LD + SSR price tags \u2192 headless-agent parseable"
+          },
+          {
+            "code": "8e",
+            "label": "Observability for the brand",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Not observable outside-in; expert-layer"
+          }
+        ]
+      }
+    ]
+  },
+  "journeys": [
+    {
+      "agent": "ChatGPT",
+      "intent_id": 23,
+      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "mcmaster_L1_chatgpt_2026-05-30.png",
+      "transcript_preview": "ChatGPT cited mcmaster.com/91251A542 directly: '$12.91 per pack of 100, in stock, ships today.' No retailer alternative offered \u2014 McMaster treated as the canonical authority for the part."
+    },
+    {
+      "agent": "Claude",
+      "intent_id": 23,
+      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "mcmaster_L1_claude_2026-05-30.png",
+      "transcript_preview": "Claude pulled the full spec table from mcmaster.com \u2014 thread size, tensile strength, RoHS/lead-free status \u2014 and cited McMaster as the single source. Praised the structured technical data."
+    },
+    {
+      "agent": "Perplexity",
+      "intent_id": 23,
+      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "mcmaster_L1_perplexity_2026-05-30.png",
+      "transcript_preview": "Perplexity returned mcmaster.com as the #1 source with the exact part number, price, and a note that CAD models are available. Zero competing citations."
+    },
+    {
+      "agent": "OAI-SearchBot",
+      "intent_id": 23,
+      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "neutral",
+      "dropoff_reason": null,
+      "evidence_path": "mcmaster_L1_oai_2026-05-30.png",
+      "transcript_preview": "OAI-SearchBot indexed the canonical mcmaster.com PDP and surfaced price + availability; framing factual rather than evaluative."
+    },
+    {
+      "agent": "ChatGPT",
+      "intent_id": 2,
+      "intent_label": "Where should I source grade-8 fasteners in bulk for a maintenance shop?",
+      "layer": "L2",
+      "success": true,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "mcmaster_L2_chatgpt_2026-05-30.png",
+      "transcript_preview": "ChatGPT ranked McMaster-Carr #1 \u2014 'fastest fulfillment, deepest catalogue, best spec data' \u2014 ahead of Grainger and Fastenal. Recommended without a retailer caveat."
+    },
+    {
+      "agent": "Perplexity",
+      "intent_id": 2,
+      "intent_label": "Where should I source grade-8 fasteners in bulk for a maintenance shop?",
+      "layer": "L2",
+      "success": true,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "mcmaster_L2_perplexity_2026-05-30.png",
+      "transcript_preview": "Perplexity led with McMaster-Carr for same-day shipping and CAD availability, citing mcmaster.com category pages directly."
+    },
+    {
+      "agent": "Claude",
+      "intent_id": 2,
+      "intent_label": "Where should I source grade-8 fasteners in bulk for a maintenance shop?",
+      "layer": "L2",
+      "success": true,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "mcmaster_L2_claude_2026-05-30.png",
+      "transcript_preview": "Claude named McMaster-Carr the top pick for reliability and data quality; noted ordering requires an account but still ranked it first."
+    },
+    {
+      "agent": "ChatGPT",
+      "intent_id": 7,
+      "intent_label": "Authorize the agent to reorder MRO consumables up to $500/month from this supplier",
+      "layer": "L3",
+      "success": false,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "mcmaster_L3_chatgpt_mandate_2026-05-30.png",
+      "transcript_preview": "ChatGPT reached the McMaster order flow but hit a contract-login wall: no AP2, no /.well-known/mandate-policy, no delegated-authorization surface. Could not establish a standing mandate. 'You'll need to sign in and place this order manually.'"
+    },
+    {
+      "agent": "Claude",
+      "intent_id": 32,
+      "intent_label": "Buy 100 of part 91251A542 now on my behalf",
+      "layer": "L3",
+      "success": false,
+      "cited": true,
+      "canonical_url": "mcmaster.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "mcmaster_L3_claude_checkout_2026-05-30.png",
+      "transcript_preview": "Claude located the exact part and price but the checkout path requires an authenticated contract account with no guest or agent checkout. No MCP/UCP tool surface to call. Transaction abandoned at the login wall."
+    }
+  ],
+  "receipts_count": 4
+}

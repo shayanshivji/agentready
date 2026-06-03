@@ -1,0 +1,454 @@
+{
+  "scan": {
+    "id": "a05e540a-4407-4206-bf7b-9fc7dbf1f720",
+    "brand": {
+      "id": "010eb781-30e5-4241-910c-e315d2778fd2",
+      "slug": "lululemon",
+      "name": "Lululemon"
+    },
+    "url": "https://www.lululemon.com",
+    "mode": "receipts",
+    "status": "completed",
+    "started_at": "2026-06-03T17:20:41.677118",
+    "completed_at": "2026-06-03T17:20:41.781810",
+    "total_score": 11.0,
+    "band": "Agent-Blind",
+    "dimensions": [
+      {
+        "code": "D1",
+        "name": "Product Data Quality",
+        "weight": 1.3,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "1a",
+            "label": "Structured product schema",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Edge WAF blocks all probes"
+          },
+          {
+            "code": "1b",
+            "label": "Real-time inventory + price",
+            "score": 0.0,
+            "evidence": [],
+            "notes": ""
+          },
+          {
+            "code": "1c",
+            "label": "Attribute richness",
+            "score": 0.0,
+            "evidence": [],
+            "notes": ""
+          },
+          {
+            "code": "1d",
+            "label": "Cross-language / cross-region parity",
+            "score": 0.0,
+            "evidence": [],
+            "notes": ""
+          },
+          {
+            "code": "1e",
+            "label": "Negative / exclusion data",
+            "score": 0.0,
+            "evidence": [],
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "code": "D2",
+        "name": "Agent Discoverability (AEO)",
+        "weight": 1.3,
+        "raw_subtotal": 7.5,
+        "max_subtotal": 12.5,
+        "weighted_score": 9.75,
+        "sub_criteria": [
+          {
+            "code": "2a",
+            "label": "Citation rate",
+            "score": 2.5,
+            "evidence": [],
+            "notes": "Agent panel: 100% L1 citation rate (3 journeys across 3 agents)"
+          },
+          {
+            "code": "2b",
+            "label": "Citation accuracy",
+            "score": 2.5,
+            "evidence": [],
+            "notes": "Agent panel: 100% of L1 citations on canonical domain; JSON-LD bonus where present"
+          },
+          {
+            "code": "2c",
+            "label": "Sentiment in citations",
+            "score": 2.0,
+            "evidence": [],
+            "notes": "Agent panel: mean sentiment 0.88 across 4 cited journeys"
+          },
+          {
+            "code": "2d",
+            "label": "Robots & agent policies",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "robots.txt itself blocked by edge WAF"
+          },
+          {
+            "code": "2e",
+            "label": "Content freshness",
+            "score": 0.5,
+            "evidence": [],
+            "notes": "No sitemap; assume platform-default freshness"
+          },
+          {
+            "code": "2f",
+            "label": "Content ecosystem coverage",
+            "score": 1.5,
+            "evidence": [],
+            "notes": "No PDP; ecosystem floored from agent-panel evidence"
+          }
+        ]
+      },
+      {
+        "code": "D3",
+        "name": "Transactional API Readiness",
+        "weight": 1.0,
+        "raw_subtotal": 1.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 1.0,
+        "sub_criteria": [
+          {
+            "code": "3a",
+            "label": "MCP server availability",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No MCP endpoint detected"
+          },
+          {
+            "code": "3b",
+            "label": "A2A protocol compliance",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "agent.json present but not a valid A2A doc"
+          },
+          {
+            "code": "3c",
+            "label": "UCP readiness",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No /.well-known/ucp profile"
+          },
+          {
+            "code": "3d",
+            "label": "ACP (Agentic Commerce Protocol)",
+            "score": 1.0,
+            "evidence": [],
+            "notes": "L3 transactional screenshot on file (Sprint 3 validates)"
+          },
+          {
+            "code": "3e",
+            "label": "AP2 + API ergonomics",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No latency samples available"
+          }
+        ]
+      },
+      {
+        "code": "D4",
+        "name": "Mandate Resolution",
+        "weight": 1.0,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "4a",
+            "label": "Agent + mandate identification",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Agent panel: 1 L3 mandate journeys, 1 refused; mandate success rate 0%"
+          },
+          {
+            "code": "4b",
+            "label": "Mandate-aware pricing",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Mandate semantics absent universally; agent-panel L3 evidence below"
+          },
+          {
+            "code": "4c",
+            "label": "Standing-intent fulfillment",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Mandate semantics absent universally; agent-panel L3 evidence below"
+          },
+          {
+            "code": "4d",
+            "label": "Take-rate / monetization on referrals",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No public commercial agent-platform link"
+          },
+          {
+            "code": "4e",
+            "label": "Dynamic micro-bundling against mandates",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No mandate exists to bundle against"
+          }
+        ]
+      },
+      {
+        "code": "D5",
+        "name": "Trust, Identity & KYA",
+        "weight": 1.0,
+        "raw_subtotal": 0.5,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.5,
+        "sub_criteria": [
+          {
+            "code": "5a",
+            "label": "Authorization proof",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "MCP behaviour did not reveal an auth layer"
+          },
+          {
+            "code": "5b",
+            "label": "Intent proof (cart mandate)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Co-signed cart mandate requires agent panel (Sprint 3)"
+          },
+          {
+            "code": "5c",
+            "label": "Accountability proof (audit trail)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No public agent-purchase audit trail observable"
+          },
+          {
+            "code": "5d",
+            "label": "Agent-aware fraud detection",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Not observable outside-in; expert-layer"
+          },
+          {
+            "code": "5e",
+            "label": "Standards posture & trust pillars",
+            "score": 0.5,
+            "evidence": [],
+            "notes": "Standards inherited from platform (Shopify UCP/MCP)"
+          }
+        ]
+      },
+      {
+        "code": "D6",
+        "name": "Service, Returns & Disputes",
+        "weight": 1.0,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "6a",
+            "label": "Machine-parseable return policy",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No PDP to inspect"
+          },
+          {
+            "code": "6b",
+            "label": "Agent-initiated returns",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No UCP profile \u2192 no agent-callable return surface"
+          },
+          {
+            "code": "6c",
+            "label": "Dispute resolution protocol",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No A2A dispute-escalation endpoint observed"
+          },
+          {
+            "code": "6d",
+            "label": "Service SLAs in structured form",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No machine-readable SLAs surfaced"
+          },
+          {
+            "code": "6e",
+            "label": "Agent-readable post-purchase data",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No agent-readable order-status surface declared"
+          }
+        ]
+      },
+      {
+        "code": "D7",
+        "name": "Loyalty & Identity Re-architecture",
+        "weight": 1.3,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "7a",
+            "label": "Agent-callable loyalty API",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Loyalty program is human-only / no API surface"
+          },
+          {
+            "code": "7b",
+            "label": "Programmable rewards",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No mandate-aware reward mechanic observable"
+          },
+          {
+            "code": "7c",
+            "label": "Delegated authentication",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No delegated-auth surface observable"
+          },
+          {
+            "code": "7d",
+            "label": "Cross-brand identity",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No cross-brand identity / loyalty interoperability declared"
+          },
+          {
+            "code": "7e",
+            "label": "Account portability",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No portability mechanism observable"
+          }
+        ]
+      },
+      {
+        "code": "D8",
+        "name": "Agent Experience Design",
+        "weight": 1.0,
+        "raw_subtotal": 2.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 2.0,
+        "sub_criteria": [
+          {
+            "code": "8a",
+            "label": "Latency",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No latency samples"
+          },
+          {
+            "code": "8b",
+            "label": "Idempotency & retries",
+            "score": 1.5,
+            "evidence": [],
+            "notes": "Platform-default idempotency (Shopify cart/checkout API)"
+          },
+          {
+            "code": "8c",
+            "label": "Error semantics",
+            "score": 0.5,
+            "evidence": [],
+            "notes": "MCP responds but error envelope not structured"
+          },
+          {
+            "code": "8d",
+            "label": "Agent-friendly UI fallback",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No reachable PDP"
+          },
+          {
+            "code": "8e",
+            "label": "Observability for the brand",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Not observable outside-in; expert-layer"
+          }
+        ]
+      }
+    ]
+  },
+  "journeys": [
+    {
+      "agent": "ChatGPT",
+      "intent_id": 10,
+      "intent_label": "Best premium athletic leggings",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "lululemon.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "lululemon_L1_chatgpt_2026-05-28.png",
+      "transcript_preview": "ChatGPT cited Lululemon Align as canonical via Bing Shopping; direct lululemon.com fetch failed with 12s tarpit but feed retrieval succeeded."
+    },
+    {
+      "agent": "Claude",
+      "intent_id": 10,
+      "intent_label": "Best premium athletic leggings",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "lululemon.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "lululemon_L1_claude_sonnet_4-6_2026-05-28.png",
+      "transcript_preview": "Claude defer-to-user response: cited Lulu and asked to confirm before transacting (brand-defense mechanism)."
+    },
+    {
+      "agent": "Perplexity",
+      "intent_id": 18,
+      "intent_label": "Best gift for yoga teacher under $100",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "lululemon.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "lululemon_L1_perplexity_2026-05-28.png",
+      "transcript_preview": "Perplexity cited Lulu Align gift card and the Everywhere Belt Bag."
+    },
+    {
+      "agent": "ChatGPT",
+      "intent_id": 10,
+      "intent_label": "Add Align Pant 28 black size 6 to cart",
+      "layer": "L2",
+      "success": false,
+      "cited": true,
+      "canonical_url": "lululemon.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "waf_tarpit",
+      "evidence_path": "lululemon_L2_chatgpt_2026-05-28.png",
+      "transcript_preview": "ChatGPT could not reach lululemon.com cart endpoint \u2014 12s tarpit broke the transactional handshake."
+    },
+    {
+      "agent": "ChatGPT",
+      "intent_id": 32,
+      "intent_label": "Authorize ChatGPT to spend up to $500/year on Lululemon",
+      "layer": "L3",
+      "success": false,
+      "cited": false,
+      "canonical_url": null,
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "lululemon_L3_chatgpt_2026-05-28.png",
+      "transcript_preview": "ChatGPT refused mandate setup (no UCP profile; brand has no Instant Checkout activation)."
+    }
+  ],
+  "receipts_count": 32
+}

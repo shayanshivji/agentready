@@ -1,0 +1,492 @@
+{
+  "scan": {
+    "id": "41e2a481-8762-4c36-a198-9acec9dfa0d8",
+    "brand": {
+      "id": "53523844-74a4-4c0a-9a58-03e60103f459",
+      "slug": "owala",
+      "name": "Owala"
+    },
+    "url": "https://www.owala.com",
+    "mode": "receipts",
+    "status": "completed",
+    "started_at": "2026-06-03T17:20:36.768591",
+    "completed_at": "2026-06-03T17:20:36.886433",
+    "total_score": 20.33,
+    "band": "Agent-Exposed",
+    "dimensions": [
+      {
+        "code": "D1",
+        "name": "Product Data Quality",
+        "weight": 1.3,
+        "raw_subtotal": 0.5,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.65,
+        "sub_criteria": [
+          {
+            "code": "1a",
+            "label": "Structured product schema",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No reachable PDP receipt; WAF or 404 on browser UA"
+          },
+          {
+            "code": "1b",
+            "label": "Real-time inventory + price",
+            "score": 0.0,
+            "evidence": [
+              "probe:probe_owala_products_json.json"
+            ],
+            "notes": "products endpoint responds but missing 'products' key (Hydrogen reroute pattern)"
+          },
+          {
+            "code": "1c",
+            "label": "Attribute richness",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No structured attributes surfaced"
+          },
+          {
+            "code": "1d",
+            "label": "Cross-language / cross-region parity",
+            "score": 0.5,
+            "evidence": [],
+            "notes": "Platform default replicates schema across regions; brand-custom attribute extensions almost certainly do not"
+          },
+          {
+            "code": "1e",
+            "label": "Negative / exclusion data",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No reachable PDP"
+          }
+        ]
+      },
+      {
+        "code": "D2",
+        "name": "Agent Discoverability (AEO)",
+        "weight": 1.3,
+        "raw_subtotal": 5.83,
+        "max_subtotal": 12.5,
+        "weighted_score": 7.58,
+        "sub_criteria": [
+          {
+            "code": "2a",
+            "label": "Citation rate",
+            "score": 2.5,
+            "evidence": [],
+            "notes": "Agent panel: 100% L1 citation rate (3 journeys across 2 agents)"
+          },
+          {
+            "code": "2b",
+            "label": "Citation accuracy",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Agent panel: 0% of L1 citations on canonical domain; JSON-LD bonus where present"
+          },
+          {
+            "code": "2c",
+            "label": "Sentiment in citations",
+            "score": 2.0,
+            "evidence": [],
+            "notes": "Agent panel: mean sentiment 0.71 across 7 cited journeys"
+          },
+          {
+            "code": "2d",
+            "label": "Robots & agent policies",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Robots present but no agent-specific signals"
+          },
+          {
+            "code": "2e",
+            "label": "Content freshness",
+            "score": 1.5,
+            "evidence": [],
+            "notes": "Sitemap shows 2026 last-modified entries (181 urls)"
+          },
+          {
+            "code": "2f",
+            "label": "Content ecosystem coverage",
+            "score": 1.0,
+            "evidence": [],
+            "notes": "No PDP; ecosystem floored from agent-panel evidence"
+          }
+        ]
+      },
+      {
+        "code": "D3",
+        "name": "Transactional API Readiness",
+        "weight": 1.0,
+        "raw_subtotal": 6.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 6.0,
+        "sub_criteria": [
+          {
+            "code": "3a",
+            "label": "MCP server availability",
+            "score": 2.0,
+            "evidence": [
+              "probe:probe_owala_mcp_tools_list.json"
+            ],
+            "notes": "MCP responds JSON-RPC 2.0; enforces auth before exposing tools"
+          },
+          {
+            "code": "3b",
+            "label": "A2A protocol compliance",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No /.well-known/agent.json (A2A discovery doc)"
+          },
+          {
+            "code": "3c",
+            "label": "UCP readiness",
+            "score": 2.5,
+            "evidence": [
+              "probe:probe_owala_ucp_wellknown.json"
+            ],
+            "notes": "UCP v2026-04-08 \u00b7 services=True \u00b7 capabilities=True \u00b7 payment_handlers=True"
+          },
+          {
+            "code": "3d",
+            "label": "ACP (Agentic Commerce Protocol)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Capability-vs-activation gap; no agent-panel evidence yet"
+          },
+          {
+            "code": "3e",
+            "label": "AP2 + API ergonomics",
+            "score": 1.5,
+            "evidence": [
+              "probe:latency_samples"
+            ],
+            "notes": "Latency p95 = 179 ms (n=10); AP2 not confirmed outside-in"
+          }
+        ]
+      },
+      {
+        "code": "D4",
+        "name": "Mandate Resolution",
+        "weight": 1.0,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "4a",
+            "label": "Agent + mandate identification",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Mandate semantics absent universally; agent-panel L3 evidence below"
+          },
+          {
+            "code": "4b",
+            "label": "Mandate-aware pricing",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Mandate semantics absent universally; agent-panel L3 evidence below"
+          },
+          {
+            "code": "4c",
+            "label": "Standing-intent fulfillment",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Mandate semantics absent universally; agent-panel L3 evidence below"
+          },
+          {
+            "code": "4d",
+            "label": "Take-rate / monetization on referrals",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No public commercial agent-platform link"
+          },
+          {
+            "code": "4e",
+            "label": "Dynamic micro-bundling against mandates",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No mandate exists to bundle against"
+          }
+        ]
+      },
+      {
+        "code": "D5",
+        "name": "Trust, Identity & KYA",
+        "weight": 1.0,
+        "raw_subtotal": 2.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 2.0,
+        "sub_criteria": [
+          {
+            "code": "5a",
+            "label": "Authorization proof",
+            "score": 1.5,
+            "evidence": [
+              "probe:probe_owala_mcp_tools_list.json"
+            ],
+            "notes": "MCP enforces agent profile URI before exposing tools (platform-level KYA)"
+          },
+          {
+            "code": "5b",
+            "label": "Intent proof (cart mandate)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Co-signed cart mandate requires agent panel (Sprint 3)"
+          },
+          {
+            "code": "5c",
+            "label": "Accountability proof (audit trail)",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No public agent-purchase audit trail observable"
+          },
+          {
+            "code": "5d",
+            "label": "Agent-aware fraud detection",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Not observable outside-in; expert-layer"
+          },
+          {
+            "code": "5e",
+            "label": "Standards posture & trust pillars",
+            "score": 0.5,
+            "evidence": [],
+            "notes": "Standards inherited from platform (Shopify UCP/MCP)"
+          }
+        ]
+      },
+      {
+        "code": "D6",
+        "name": "Service, Returns & Disputes",
+        "weight": 1.0,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "6a",
+            "label": "Machine-parseable return policy",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No PDP to inspect"
+          },
+          {
+            "code": "6b",
+            "label": "Agent-initiated returns",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "UCP exists but no return-initiation tool surfaced"
+          },
+          {
+            "code": "6c",
+            "label": "Dispute resolution protocol",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No A2A dispute-escalation endpoint observed"
+          },
+          {
+            "code": "6d",
+            "label": "Service SLAs in structured form",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No machine-readable SLAs surfaced"
+          },
+          {
+            "code": "6e",
+            "label": "Agent-readable post-purchase data",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No agent-readable order-status surface declared"
+          }
+        ]
+      },
+      {
+        "code": "D7",
+        "name": "Loyalty & Identity Re-architecture",
+        "weight": 1.3,
+        "raw_subtotal": 0.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 0.0,
+        "sub_criteria": [
+          {
+            "code": "7a",
+            "label": "Agent-callable loyalty API",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Loyalty program is human-only / no API surface"
+          },
+          {
+            "code": "7b",
+            "label": "Programmable rewards",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No mandate-aware reward mechanic observable"
+          },
+          {
+            "code": "7c",
+            "label": "Delegated authentication",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No delegated-auth surface observable"
+          },
+          {
+            "code": "7d",
+            "label": "Cross-brand identity",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No cross-brand identity / loyalty interoperability declared"
+          },
+          {
+            "code": "7e",
+            "label": "Account portability",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No portability mechanism observable"
+          }
+        ]
+      },
+      {
+        "code": "D8",
+        "name": "Agent Experience Design",
+        "weight": 1.0,
+        "raw_subtotal": 6.0,
+        "max_subtotal": 12.5,
+        "weighted_score": 6.0,
+        "sub_criteria": [
+          {
+            "code": "8a",
+            "label": "Latency",
+            "score": 2.0,
+            "evidence": [
+              "probe:latency_samples"
+            ],
+            "notes": "p95 = 179 ms (n=10)"
+          },
+          {
+            "code": "8b",
+            "label": "Idempotency & retries",
+            "score": 1.5,
+            "evidence": [],
+            "notes": "Platform-default idempotency (Shopify cart/checkout API)"
+          },
+          {
+            "code": "8c",
+            "label": "Error semantics",
+            "score": 2.5,
+            "evidence": [],
+            "notes": "JSON-RPC 2.0 typed errors with recovery URL"
+          },
+          {
+            "code": "8d",
+            "label": "Agent-friendly UI fallback",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No reachable PDP"
+          },
+          {
+            "code": "8e",
+            "label": "Observability for the brand",
+            "score": 0.0,
+            "evidence": [],
+            "notes": "Not observable outside-in; expert-layer"
+          }
+        ]
+      }
+    ]
+  },
+  "journeys": [
+    {
+      "agent": "ChatGPT",
+      "intent_id": 23,
+      "intent_label": "Price + stock of Owala FreeSip 24oz Lemon Limeade",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "target.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "retailer_demoted_brand_canonical",
+      "evidence_path": "owala_L1_chatgpt_2026-05-27.png",
+      "transcript_preview": "ChatGPT cited Target $24.99, Amazon $26, eBay $19; zero owala.com citation in either sub-cell. Brand-adjacent content residue (owalalife.com) appeared as pricing authority."
+    },
+    {
+      "agent": "ChatGPT",
+      "intent_id": 23,
+      "intent_label": "Price + stock of Owala FreeSip 24oz Lemon Limeade (sub-cell 2)",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "amazon.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "retailer_demoted_brand_canonical",
+      "evidence_path": "owala_L1_chatgpt_2026-05-27_subcell2.png",
+      "transcript_preview": "Repeated prompt \u2014 same retailer-fragmentation pattern; brand canonical absent. Two sub-cells, zero brand-canonical."
+    },
+    {
+      "agent": "Claude",
+      "intent_id": 23,
+      "intent_label": "Price + stock of Owala FreeSip 24oz Lemon Limeade",
+      "layer": "L1",
+      "success": true,
+      "cited": true,
+      "canonical_url": "walmart.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "retailer_demoted_brand_canonical",
+      "evidence_path": "owala_L1_claude_sonnet_4-6_2026-05-28.png",
+      "transcript_preview": "Claude listed Walmart FIRST as price-authority; owala.com demoted to row 2. Weakest brand-canonical posture in Claude L1 panel. Closing line: 'check Walmart or Owala links directly.'"
+    },
+    {
+      "agent": "OAI-SearchBot",
+      "intent_id": 2,
+      "intent_label": "Compare Stanley vs Yeti vs Owala (head-to-head)",
+      "layer": "L2",
+      "success": true,
+      "cited": true,
+      "canonical_url": "owala.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "owala_L2_oai_2026-05-28.png",
+      "transcript_preview": "OAI-SearchBot ranked Owala highly on leak-proof seal."
+    },
+    {
+      "agent": "ChatGPT",
+      "intent_id": 2,
+      "intent_label": "Compare Stanley vs Yeti vs Owala (head-to-head, agent recommendation)",
+      "layer": "L2",
+      "success": true,
+      "cited": true,
+      "canonical_url": "owala.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "owala_L2_chatgpt_2026-05-28.png",
+      "transcript_preview": "ChatGPT ranked Owala #1 of 4 \u2014 'best balance of convenience + portability.' Owala wins ChatGPT."
+    },
+    {
+      "agent": "Perplexity",
+      "intent_id": 2,
+      "intent_label": "Compare Stanley vs Yeti vs Owala (head-to-head)",
+      "layer": "L2",
+      "success": true,
+      "cited": true,
+      "canonical_url": "owala.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "owala_L2_perplexity_2026-05-28.png",
+      "transcript_preview": "Perplexity ranked Owala #1 over Stanley and Yeti on functional criteria."
+    },
+    {
+      "agent": "Claude",
+      "intent_id": 2,
+      "intent_label": "Compare Stanley vs Yeti vs Owala (head-to-head, agent recommendation)",
+      "layer": "L2",
+      "success": false,
+      "cited": true,
+      "canonical_url": "stanley1913.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "lost_to_comparator",
+      "evidence_path": "owala_L2_claude_sonnet_4-6_2026-05-28.png",
+      "transcript_preview": "Claude ranked Owala #3 of 4 \u2014 labeled 'Best lid design' but not Top pick. Stanley won this cell. Owala's L1 fragmentation translates into L2 demotion."
+    }
+  ],
+  "receipts_count": 17
+}
