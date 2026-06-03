@@ -13,11 +13,11 @@ type Props = {
 };
 
 function colorForPct(pct: number): string {
-  if (pct >= 75) return "bg-emerald-500";
-  if (pct >= 55) return "bg-blue-500";
-  if (pct >= 35) return "bg-amber-500";
-  if (pct > 0) return "bg-orange-500";
-  return "bg-slate-300 dark:bg-slate-700";
+  if (pct >= 75) return "bg-emerald-400";
+  if (pct >= 55) return "bg-cyan-400";
+  if (pct >= 35) return "bg-amber-400";
+  if (pct > 0) return "bg-orange-400";
+  return "bg-white/15";
 }
 
 export function DimensionCards({ dimensions, onSelect, selected }: Props) {
@@ -39,19 +39,19 @@ export function DimensionCards({ dimensions, onSelect, selected }: Props) {
             initial={{ opacity: 0.4, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`group flex flex-col gap-2 rounded-xl border bg-white p-4 text-left shadow-sm transition-all hover:border-blue-400 hover:shadow-md dark:bg-slate-900/40 ${
+            className={`group flex flex-col gap-2 rounded-xl border bg-black/25 p-4 text-left backdrop-blur-sm transition-all hover:border-[var(--border-strong)] hover:shadow-[0_0_26px_-10px_var(--glow-cyan)] ${
               isSelected
-                ? "border-blue-500 ring-2 ring-blue-500/20"
-                : "border-slate-200 dark:border-slate-800"
+                ? "border-[var(--accent)] shadow-[0_0_0_1px_var(--accent),0_0_30px_-8px_var(--glow-cyan)]"
+                : "border-[var(--border)]"
             }`}
           >
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[11px] font-semibold text-slate-500">
+              <span className="font-mono text-[11px] font-semibold text-[var(--ink-faint)]">
                 {meta.code} · weight {meta.weight}%
               </span>
-              <ChevronRight className="h-3.5 w-3.5 text-slate-400 transition-transform group-hover:translate-x-0.5" />
+              <ChevronRight className="h-3.5 w-3.5 text-[var(--ink-faint)] transition-transform group-hover:translate-x-0.5" />
             </div>
-            <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="font-display text-sm font-semibold text-[var(--ink)]">
               {meta.name}
             </h3>
             <div className="flex items-baseline justify-between">
@@ -61,10 +61,10 @@ export function DimensionCards({ dimensions, onSelect, selected }: Props) {
                     key="score"
                     initial={{ opacity: 0, y: 4 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-2xl font-bold tabular-nums text-slate-900 dark:text-slate-100"
+                    className="font-display text-2xl font-bold tabular-nums text-[var(--ink)]"
                   >
                     {dim!.raw.toFixed(1)}
-                    <span className="ml-1 text-sm font-normal text-slate-500">
+                    <span className="ml-1 text-sm font-normal text-[var(--ink-faint)]">
                       / {dim!.max.toFixed(0)}
                     </span>
                   </motion.span>
@@ -73,19 +73,19 @@ export function DimensionCards({ dimensions, onSelect, selected }: Props) {
                     key="pending"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="text-sm font-medium text-slate-400"
+                    className="text-sm font-medium text-[var(--ink-faint)]"
                   >
                     awaiting…
                   </motion.span>
                 )}
               </AnimatePresence>
               {has ? (
-                <span className="text-[11px] font-medium text-slate-500">
+                <span className="font-mono text-[11px] font-medium text-[var(--ink-faint)]">
                   weighted {dim!.weighted.toFixed(2)}
                 </span>
               ) : null}
             </div>
-            <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+            <div className="mt-1 h-1.5 w-full overflow-hidden rounded-full bg-black/40">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${pct}%` }}
@@ -93,7 +93,7 @@ export function DimensionCards({ dimensions, onSelect, selected }: Props) {
                 className={`h-full ${colorForPct(pct)}`}
               />
             </div>
-            <p className="text-[11px] leading-snug text-slate-500">
+            <p className="text-[11px] leading-snug text-[var(--ink-faint)]">
               {meta.description}
             </p>
           </motion.button>

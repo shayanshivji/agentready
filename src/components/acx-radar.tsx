@@ -49,23 +49,31 @@ export function AcxRadar({ dimensions, height = 360 }: Props) {
     >
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={data} outerRadius="80%">
-          <PolarGrid stroke="#cbd5e1" strokeOpacity={0.6} />
+          <defs>
+            <linearGradient id="acx-radar-fill" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#22d3ee" stopOpacity={0.45} />
+              <stop offset="100%" stopColor="#7c5cff" stopOpacity={0.35} />
+            </linearGradient>
+          </defs>
+          <PolarGrid stroke="#8ca5dc" strokeOpacity={0.18} />
           <PolarAngleAxis
             dataKey="short"
-            tick={{ fontSize: 12, fill: "#475569", fontWeight: 600 }}
+            tick={{ fontSize: 12, fill: "#94a3c4", fontWeight: 600 }}
           />
           <PolarRadiusAxis
             angle={90}
             domain={[0, 100]}
-            tick={{ fontSize: 10, fill: "#94a3b8" }}
-            stroke="#e2e8f0"
+            tick={{ fontSize: 10, fill: "#5e6b8c" }}
+            stroke="#8ca5dc"
+            strokeOpacity={0.18}
           />
           <Radar
             name="Score"
             dataKey="pct"
-            stroke="#2563eb"
-            fill="#2563eb"
-            fillOpacity={0.28}
+            stroke="#22d3ee"
+            strokeWidth={2}
+            fill="url(#acx-radar-fill)"
+            fillOpacity={1}
             isAnimationActive
             animationDuration={700}
           />

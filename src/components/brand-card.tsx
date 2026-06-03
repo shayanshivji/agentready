@@ -34,51 +34,65 @@ export function BrandCard({ brand }: { brand: Brand }) {
     }
   }
 
-  return (
-    <article className="flex flex-col gap-3 rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-blue-400 hover:shadow-md dark:border-slate-800 dark:bg-slate-900/40">
-      <header className="flex items-baseline justify-between gap-3">
-        <h3 className="text-lg font-semibold tracking-tight text-slate-900 dark:text-slate-100">
-          {brand.name}
-        </h3>
-        <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium uppercase tracking-wide text-slate-600 dark:bg-slate-800 dark:text-slate-300">
-          {brand.archetype}
-        </span>
-      </header>
-      <p className="-mt-2 font-mono text-xs text-slate-500">{brand.domain}</p>
+  const score = brand.latest_scan?.total_score ?? null;
 
-      <dl className="grid grid-cols-2 gap-2 text-sm">
+  return (
+    <article className="glass-card group flex flex-col gap-4 p-5">
+      <header className="flex items-start justify-between gap-3">
+        <div className="flex flex-col gap-1">
+          <h3 className="font-display text-lg font-semibold tracking-tight text-[var(--ink)]">
+            {brand.name}
+          </h3>
+          <p className="font-mono text-xs text-[var(--ink-faint)]">{brand.domain}</p>
+        </div>
+        <span className="chip shrink-0">{brand.archetype}</span>
+      </header>
+
+      {/* Score readout */}
+      <div className="flex items-end justify-between rounded-xl border border-[var(--border)] bg-black/25 px-4 py-3">
+        <div className="flex flex-col">
+          <span className="text-[10px] uppercase tracking-[0.2em] text-[var(--ink-faint)]">
+            ACX Score
+          </span>
+          <span
+            className="font-display text-3xl font-bold tabular-nums leading-none"
+            style={{ color: band?.color ?? "var(--ink)" }}
+          >
+            {score?.toFixed(1) ?? "—"}
+            <span className="ml-1 text-sm font-medium text-[var(--ink-faint)]">/100</span>
+          </span>
+        </div>
+        {band ? (
+          <span
+            className="rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide"
+            style={{
+              color: band.color,
+              backgroundColor: `${band.color}1f`,
+              border: `1px solid ${band.color}55`,
+            }}
+          >
+            {band.label}
+          </span>
+        ) : (
+          <span className="text-xs text-[var(--ink-faint)]">
+            {brand.latest_scan?.status ?? "not scanned"}
+          </span>
+        )}
+      </div>
+
+      <dl className="grid grid-cols-2 gap-3 text-sm">
         <div>
-          <dt className="text-[11px] uppercase tracking-wide text-slate-500">Target curve</dt>
-          <dd className="font-semibold text-slate-900 dark:text-slate-100">{brand.target_curve}</dd>
+          <dt className="text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
+            Target curve
+          </dt>
+          <dd className="font-mono font-semibold text-[var(--ink)]">{brand.target_curve}</dd>
         </div>
         <div>
-          <dt className="text-[11px] uppercase tracking-wide text-slate-500">Target band</dt>
-          <dd className="font-semibold text-slate-900 dark:text-slate-100">
+          <dt className="text-[10px] uppercase tracking-[0.16em] text-[var(--ink-faint)]">
+            Target band
+          </dt>
+          <dd className="font-mono font-semibold text-[var(--ink)]">
             {brand.target_band[0]}–{brand.target_band[1]}
-          </dd>
-        </div>
-        <div className="col-span-2">
-          <dt className="text-[11px] uppercase tracking-wide text-slate-500">Latest scan</dt>
-          <dd className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
-            {brand.latest_scan ? (
-              <>
-                <span className="text-lg font-bold tabular-nums text-slate-900 dark:text-slate-100">
-                  {brand.latest_scan.total_score?.toFixed(1) ?? "—"}
-                </span>
-                {band ? (
-                  <span
-                    className="rounded-full px-2 py-0.5 text-[10px] font-semibold text-white"
-                    style={{ backgroundColor: band.color }}
-                  >
-                    {band.label}
-                  </span>
-                ) : (
-                  <span className="text-slate-500">{brand.latest_scan.status}</span>
-                )}
-              </>
-            ) : (
-              <span className="text-slate-500">not yet scanned</span>
-            )}
           </dd>
         </div>
       </dl>
@@ -87,12 +101,12 @@ export function BrandCard({ brand }: { brand: Brand }) {
         type="button"
         onClick={runScan}
         disabled={submitting}
-        className="inline-flex items-center justify-center gap-1.5 rounded-md bg-slate-900 px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-600 disabled:opacity-60 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-blue-500 dark:hover:text-white"
+        className="group/btn mt-1 inline-flex items-center justify-center gap-2 rounded-lg border border-[var(--border-strong)] bg-gradient-to-r from-cyan-500/15 to-violet-500/15 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-[var(--ink)] transition hover:from-cyan-500/30 hover:to-violet-500/30 hover:shadow-[0_0_24px_-6px_var(--glow-cyan)] disabled:opacity-60"
       >
-        <Play className="h-3.5 w-3.5" />
+        <Play className="h-3.5 w-3.5 text-[var(--accent)] transition group-hover/btn:translate-x-0.5" />
         {submitting ? "Starting…" : STATIC_MODE ? "Replay ACX scan" : "Run live ACX scan"}
       </button>
-      {error ? <p className="text-[11px] text-rose-600">{error}</p> : null}
+      {error ? <p className="text-[11px] text-rose-400">{error}</p> : null}
     </article>
   );
 }

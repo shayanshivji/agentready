@@ -46,7 +46,7 @@ export function LiveScanView({
 
   if (!state) {
     return (
-      <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center text-sm text-slate-500 shadow-sm">
+      <div className="glass-card p-8 text-center text-sm text-[var(--ink-soft)]">
         Connecting to scan stream…
       </div>
     );
@@ -67,19 +67,23 @@ export function LiveScanView({
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-10">
       <header className="flex flex-col gap-3">
-        <Link href="/" className="inline-flex items-center gap-1 text-xs text-slate-500 hover:text-blue-600">
+        <Link href="/" className="inline-flex w-fit items-center gap-1 text-xs text-[var(--ink-faint)] transition hover:text-[var(--accent)]">
           <ArrowLeft className="h-3.5 w-3.5" /> All brands
         </Link>
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="flex flex-col gap-1">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-              ACX live scan · {brandSlug}
+            <p className="chip w-fit">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+              </span>
+              ACX scan · {brandSlug}
             </p>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+            <h1 className="font-display text-4xl font-bold tracking-tight text-[var(--ink)]">
               {brandName}
             </h1>
-            <p className="font-mono text-xs text-slate-500">{url}</p>
-            <p className="text-xs text-slate-500">
+            <p className="font-mono text-xs text-[var(--ink-soft)]">{url}</p>
+            <p className="font-mono text-xs text-[var(--ink-faint)]">
               started {new Date(startedAt).toLocaleString()} · mode {mode}
             </p>
           </div>
@@ -88,14 +92,14 @@ export function LiveScanView({
               href={pdfHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border-strong)] bg-gradient-to-r from-cyan-500/15 to-violet-500/15 px-3 py-1.5 text-xs font-medium text-[var(--ink)] transition hover:shadow-[0_0_22px_-6px_var(--glow-cyan)]"
             >
-              <Download className="h-3.5 w-3.5" /> Board report (PDF)
+              <Download className="h-3.5 w-3.5 text-[var(--accent)]" /> Board report (PDF)
             </a>
             <button
               type="button"
               onClick={() => window.location.reload()}
-              className="inline-flex items-center gap-1.5 rounded-md border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm hover:border-blue-400 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--border)] bg-white/5 px-3 py-1.5 text-xs font-medium text-[var(--ink-soft)] transition hover:border-[var(--border-strong)] hover:text-[var(--ink)]"
             >
               <RefreshCcw className="h-3.5 w-3.5" /> {staticMode ? "Replay" : "Reconnect"}
             </button>
@@ -147,20 +151,20 @@ export function LiveScanView({
       ) : null}
 
       <section className="grid gap-4 lg:grid-cols-[1.3fr_1fr]">
-        <div className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
+        <div className="glass-card flex flex-col gap-3 p-5">
           <div className="flex items-baseline justify-between">
-            <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+            <h2 className="font-display text-sm font-semibold tracking-wide text-[var(--ink)]">
               ACX radar
             </h2>
-            <span className="text-[11px] text-slate-500">
+            <span className="text-[11px] text-[var(--ink-faint)]">
               normalised to dimension max
             </span>
           </div>
           <AcxRadar dimensions={state.dimensions} height={340} />
         </div>
 
-        <div className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+        <div className="glass-card flex flex-col gap-3 p-5">
+          <h2 className="font-display text-sm font-semibold tracking-wide text-[var(--ink)]">
             Pipeline
           </h2>
           <PipelineTimeline nodes={state.pipeline} />
@@ -169,10 +173,10 @@ export function LiveScanView({
 
       <section className="flex flex-col gap-3">
         <div className="flex items-baseline justify-between">
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+          <h2 className="font-display text-sm font-semibold tracking-wide text-[var(--ink)]">
             Dimensions
           </h2>
-          <p className="text-xs text-slate-500">Click any card for evidence.</p>
+          <p className="text-xs text-[var(--ink-faint)]">Click any card for evidence.</p>
         </div>
         <DimensionCards
           dimensions={state.dimensions}
@@ -183,11 +187,11 @@ export function LiveScanView({
 
       <section className={`flex flex-col gap-3 ${isThinResult ? "hidden" : ""}`}>
         <div className="flex flex-wrap items-baseline justify-between gap-3">
-          <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+          <h2 className="font-display text-sm font-semibold tracking-wide text-[var(--ink)]">
             Agent journeys ({state.journeys.length})
           </h2>
           <div className="flex items-center gap-2">
-            <div className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 p-1 text-xs dark:border-slate-800 dark:bg-slate-900/40">
+            <div className="inline-flex items-center gap-1 rounded-lg border border-[var(--border)] bg-black/25 p-1 text-xs">
               {(["replay", "feed"] as const).map((opt) => (
                 <button
                   key={opt}
@@ -195,8 +199,8 @@ export function LiveScanView({
                   onClick={() => setJourneyView(opt)}
                   className={`rounded-md px-2.5 py-1 font-medium capitalize transition ${
                     journeyView === opt
-                      ? "bg-white text-slate-900 shadow-sm dark:bg-slate-800 dark:text-slate-100"
-                      : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"
+                      ? "bg-gradient-to-r from-cyan-500/25 to-violet-500/25 text-[var(--ink)] shadow-[0_0_16px_-6px_var(--glow-cyan)]"
+                      : "text-[var(--ink-faint)] hover:text-[var(--ink)]"
                   }`}
                 >
                   {opt}
@@ -204,7 +208,7 @@ export function LiveScanView({
               ))}
             </div>
             {journeyView === "feed" ? (
-              <div className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 p-1 text-xs dark:border-slate-800 dark:bg-slate-900/40">
+              <div className="inline-flex items-center gap-1 rounded-lg border border-[var(--border)] bg-black/25 p-1 text-xs">
                 {(["ALL", "L1", "L2", "L3"] as const).map((opt) => (
                   <button
                     key={opt}
@@ -212,8 +216,8 @@ export function LiveScanView({
                     onClick={() => setLayerFilter(opt)}
                     className={`rounded-md px-2.5 py-1 font-medium transition ${
                       layerFilter === opt
-                        ? "bg-white text-slate-900 shadow-sm dark:bg-slate-800 dark:text-slate-100"
-                        : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"
+                        ? "bg-gradient-to-r from-cyan-500/25 to-violet-500/25 text-[var(--ink)] shadow-[0_0_16px_-6px_var(--glow-cyan)]"
+                        : "text-[var(--ink-faint)] hover:text-[var(--ink)]"
                     }`}
                   >
                     {opt}

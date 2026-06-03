@@ -34,7 +34,7 @@ export function JourneyFeed({ journeys, filterLayer = "ALL", onSelect }: Props) 
 
   if (filtered.length === 0) {
     return (
-      <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/40">
+      <p className="rounded-xl border border-dashed border-[var(--border)] bg-black/25 p-6 text-center text-sm text-[var(--ink-faint)]">
         No journeys yet. Watching for agent-panel events…
       </p>
     );
@@ -52,20 +52,20 @@ export function JourneyFeed({ journeys, filterLayer = "ALL", onSelect }: Props) 
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => onSelect?.(j)}
-              className={`flex flex-col gap-2 rounded-xl border bg-white p-4 shadow-sm dark:bg-slate-900/40 ${
-                onSelect ? "cursor-pointer hover:border-blue-400" : ""
-              } border-slate-200 dark:border-slate-800`}
+              className={`flex flex-col gap-2 rounded-xl border border-[var(--border)] bg-black/25 p-4 backdrop-blur-sm transition ${
+                onSelect ? "cursor-pointer hover:border-[var(--border-strong)] hover:shadow-[0_0_24px_-10px_var(--glow-cyan)]" : ""
+              }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Icon className="h-4 w-4 text-blue-600" />
-                  <span className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  <Icon className="h-4 w-4 text-[var(--accent)]" />
+                  <span className="text-xs font-semibold uppercase tracking-wide text-[var(--ink-faint)]">
                     {LAYER_LABEL[j.layer]}
                   </span>
                 </div>
-                <span className="font-mono text-[11px] text-slate-500">{j.agent}</span>
+                <span className="font-mono text-[11px] text-[var(--ink-faint)]">{j.agent}</span>
               </div>
-              <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+              <p className="text-sm font-medium text-[var(--ink)]">
                 Intent {j.intent_id}: {j.intent_label}
               </p>
               <div className="flex flex-wrap items-center gap-2 text-[11px]">

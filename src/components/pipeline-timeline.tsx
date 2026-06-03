@@ -27,23 +27,23 @@ export function PipelineTimeline({ nodes }: Props) {
               : Circle;
         const color =
           node.status === "completed"
-            ? "text-emerald-600"
+            ? "text-emerald-400"
             : node.status === "running"
-              ? "text-blue-600"
-              : "text-slate-400";
+              ? "text-[var(--accent)]"
+              : "text-[var(--ink-faint)]";
         const border =
           node.status === "completed"
-            ? "border-emerald-200"
+            ? "border-emerald-400/35"
             : node.status === "running"
-              ? "border-blue-200"
-              : "border-slate-200";
+              ? "border-[var(--accent)]/45 shadow-[0_0_26px_-8px_var(--glow-cyan)]"
+              : "border-[var(--border)]";
         return (
           <motion.li
             key={node.id}
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: idx * 0.05, duration: 0.25 }}
-            className={`relative rounded-xl border bg-white p-4 shadow-sm dark:bg-slate-900/40 ${border} dark:border-slate-800`}
+            className={`relative rounded-xl border bg-black/25 p-4 backdrop-blur-sm ${border}`}
           >
             <div className="flex items-start gap-3">
               <Icon
@@ -52,13 +52,13 @@ export function PipelineTimeline({ nodes }: Props) {
                 }`}
               />
               <div className="flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--ink-faint)]">
                   Step {idx + 1} · {STATUS_COPY[node.status] ?? node.status}
                 </p>
-                <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">
+                <p className="font-display text-sm font-semibold text-[var(--ink)]">
                   {node.label}
                 </p>
-                <p className="mt-1 text-xs text-slate-500">{node.description}</p>
+                <p className="mt-1 text-xs text-[var(--ink-soft)]">{node.description}</p>
                 <NodeMeta node={node} />
               </div>
             </div>
@@ -87,7 +87,7 @@ function NodeMeta({ node }: { node: PipelineNodeState }) {
   }
   if (lines.length === 0) return null;
   return (
-    <ul className="mt-2 space-y-0.5 text-[11px] text-slate-500">
+    <ul className="mt-2 space-y-0.5 font-mono text-[11px] text-[var(--ink-faint)]">
       {lines.map((l) => (
         <li key={l}>· {l}</li>
       ))}

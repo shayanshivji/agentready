@@ -23,7 +23,7 @@ export function HealthBadge() {
 
   if (error) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-300 bg-rose-50 px-2.5 py-1 text-xs font-medium text-rose-700 dark:border-rose-900 dark:bg-rose-950 dark:text-rose-300">
+      <span className="inline-flex items-center gap-1.5 rounded-full border border-rose-500/40 bg-rose-500/10 px-2.5 py-1 text-xs font-medium text-rose-300">
         <span className="h-1.5 w-1.5 rounded-full bg-rose-500" /> API unreachable
       </span>
     );
@@ -31,15 +31,18 @@ export function HealthBadge() {
 
   if (!health) {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-500 dark:border-slate-800 dark:bg-slate-900">
-        <span className="h-1.5 w-1.5 rounded-full bg-slate-400" /> checking…
+      <span className="chip">
+        <span className="h-1.5 w-1.5 rounded-full bg-[var(--ink-faint)]" /> checking…
       </span>
     );
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-300 bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-300">
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--accent-3)]/35 bg-[var(--accent-3)]/10 px-2.5 py-1 text-xs font-medium text-[var(--accent-3)]">
+      <span className="relative flex h-1.5 w-1.5">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent-3)] opacity-75" />
+        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent-3)]" />
+      </span>
       {STATIC_MODE ? "Demo · receipts mode" : `API ${health.status} · mode ${health.mode}`}
     </span>
   );

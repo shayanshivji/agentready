@@ -1,26 +1,248 @@
 @import "tailwindcss";
 
+/* Class-based dark variant so we can force the command-center theme on any OS. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Deep-space command-center palette */
+  --bg: #050813;
+  --bg-2: #070b1a;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface-2: rgba(255, 255, 255, 0.06);
+  --border: rgba(140, 165, 220, 0.14);
+  --border-strong: rgba(140, 175, 255, 0.28);
+  --ink: #e8eefc;
+  --ink-soft: #94a3c4;
+  --ink-faint: #5e6b8c;
+  --accent: #22d3ee; /* cyan */
+  --accent-2: #7c5cff; /* violet */
+  --accent-3: #2dd4bf; /* teal */
+  --glow-cyan: rgba(34, 211, 238, 0.45);
+  --glow-violet: rgba(124, 92, 255, 0.4);
+
+  --background: var(--bg);
+  --foreground: var(--ink);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display), var(--font-geist-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  /* Layered radial auroras + faint engineering grid, fixed behind content. */
+  background-image:
+    radial-gradient(900px circle at 12% -10%, rgba(34, 211, 238, 0.10), transparent 55%),
+    radial-gradient(1000px circle at 92% 0%, rgba(124, 92, 255, 0.12), transparent 55%),
+    radial-gradient(1200px circle at 50% 120%, rgba(45, 212, 191, 0.08), transparent 50%),
+    linear-gradient(var(--bg-2), var(--bg));
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Engineering grid overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(140, 170, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 170, 255, 0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at 50% 35%, black, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 35%, black, transparent 85%);
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Selection + scrollbar ------------------------------------------------ */
+::selection {
+  background: rgba(34, 211, 238, 0.28);
+  color: #fff;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(140, 170, 255, 0.25) transparent;
+}
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(140, 170, 255, 0.22);
+  border-radius: 9px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 170, 255, 0.4);
+}
+
+/* --- Reusable command-center utilities ------------------------------------ */
+@layer components {
+  .glass {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .glass-card {
+    position: relative;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.018));
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.06) inset,
+      0 18px 50px -22px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  }
+  .glass-card:hover {
+    border-color: var(--border-strong);
+    box-shadow:
+      0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+      0 0 0 1px rgba(34, 211, 238, 0.12),
+      0 24px 60px -22px rgba(0, 0, 0, 0.85),
+      0 0 40px -8px var(--glow-cyan);
+  }
+
+  /* Animated conic gradient hairline border for hero surfaces */
+  .holo-border {
+    position: relative;
+    border-radius: 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .holo-border::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 0%,
+      rgba(34, 211, 238, 0.7) 12%,
+      rgba(124, 92, 255, 0.7) 24%,
+      transparent 40%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.7;
+    animation: holo-spin 6s linear infinite;
+  }
+
+  .neon {
+    text-shadow: 0 0 18px var(--glow-cyan), 0 0 42px rgba(34, 211, 238, 0.25);
+  }
+  .neon-violet {
+    text-shadow: 0 0 18px var(--glow-violet), 0 0 42px rgba(124, 92, 255, 0.25);
+  }
+
+  .text-gradient {
+    background: linear-gradient(100deg, #d7fbff 0%, var(--accent) 38%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    padding: 0.25rem 0.7rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .scanline {
+    position: relative;
+    overflow: hidden;
+  }
+  .scanline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      transparent 30%,
+      rgba(34, 211, 238, 0.07) 50%,
+      transparent 70%
+    );
+    transform: translateX(-100%);
+    animation: sweep 4.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+
+/* --- Keyframes ------------------------------------------------------------ */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes holo-spin {
+  to {
+    --angle: 360deg;
+  }
+}
+@keyframes sweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  60%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 211, 238, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .holo-border::after,
+  .scanline::before {
+    animation: none;
+  }
 }

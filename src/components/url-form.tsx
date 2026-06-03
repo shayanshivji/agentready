@@ -47,17 +47,17 @@ export function UrlForm() {
         onChange={(e) => setUrl(e.target.value)}
         placeholder="https://www.example.com"
         required
-        className="flex-1 rounded-lg border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 shadow-sm outline-none ring-blue-500/20 transition focus:border-blue-500 focus:ring-4 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100"
+        className="flex-1 rounded-lg border border-[var(--border)] bg-black/30 px-4 py-3 font-mono text-base text-[var(--ink)] outline-none transition placeholder:text-[var(--ink-faint)] focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_rgba(34,211,238,0.12)]"
       />
       <button
         type="submit"
         disabled={submitting}
-        className="rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
+        className="rounded-lg bg-gradient-to-r from-cyan-400 to-violet-500 px-6 py-3 text-base font-semibold text-[#04060f] shadow-[0_0_28px_-6px_var(--glow-cyan)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {submitting ? "Starting…" : "Run ACX scan"}
       </button>
       {error ? (
-        <p className="sm:basis-full text-sm text-rose-600 dark:text-rose-400">{error}</p>
+        <p className="sm:basis-full text-sm text-rose-400">{error}</p>
       ) : null}
     </form>
   );

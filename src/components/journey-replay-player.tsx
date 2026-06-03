@@ -28,26 +28,26 @@ const LAYER_META: Record<
     label: "L1 · Citation",
     icon: Sparkles,
     blurb: "Does the agent find and cite the brand when asked a factual question?",
-    accent: "#2563eb",
+    accent: "#22d3ee",
   },
   L2: {
     label: "L2 · Recommendation",
     icon: ArrowRight,
     blurb: "Does the agent recommend the brand when comparing options?",
-    accent: "#7c3aed",
+    accent: "#7c5cff",
   },
   L3: {
     label: "L3 · Action",
     icon: ShoppingCart,
     blurb: "Can the agent transact — checkout, mandate, reorder — on the brand's surface?",
-    accent: "#db2777",
+    accent: "#ec4899",
   },
 };
 
 const SENTIMENT_STYLES: Record<string, string> = {
-  positive: "bg-emerald-100 text-emerald-800",
-  neutral: "bg-slate-100 text-slate-700",
-  negative: "bg-rose-100 text-rose-800",
+  positive: "bg-emerald-500/15 text-emerald-300",
+  neutral: "bg-white/10 text-[var(--ink-soft)]",
+  negative: "bg-rose-500/15 text-rose-300",
 };
 
 const SPEEDS = [
@@ -104,7 +104,7 @@ export function JourneyReplayPlayer({ journeys }: Props) {
 
   if (count === 0) {
     return (
-      <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-6 text-center text-sm text-slate-500 dark:border-slate-700 dark:bg-slate-900/40">
+      <p className="rounded-xl border border-dashed border-[var(--border)] bg-black/25 p-6 text-center text-sm text-[var(--ink-faint)]">
         No journeys captured yet — the replay player activates once the agent panel runs.
       </p>
     );
@@ -124,9 +124,12 @@ export function JourneyReplayPlayer({ journeys }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
+    <div className="glass-card flex flex-col gap-4 p-5">
       {/* Stage */}
-      <div className="relative min-h-[210px] overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-5 dark:border-slate-800 dark:from-slate-900 dark:to-slate-950">
+      <div
+        className="relative min-h-[210px] overflow-hidden rounded-xl border border-[var(--border)] p-5"
+        style={{ background: `radial-gradient(120% 120% at 0% 0%, ${meta.accent}1a, transparent 60%), rgba(0,0,0,0.35)` }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -143,14 +146,14 @@ export function JourneyReplayPlayer({ journeys }: Props) {
               >
                 <Icon className="h-3.5 w-3.5" /> {meta.label}
               </span>
-              <span className="font-mono text-xs text-slate-500">
+              <span className="font-mono text-xs text-[var(--ink-faint)]">
                 {current.agent} · intent {current.intent_id}
               </span>
             </div>
 
-            <p className="text-[11px] uppercase tracking-wide text-slate-400">{meta.blurb}</p>
+            <p className="text-[11px] uppercase tracking-wide text-[var(--ink-faint)]">{meta.blurb}</p>
 
-            <p className="text-base font-semibold leading-snug text-slate-900 dark:text-slate-100">
+            <p className="font-display text-base font-semibold leading-snug text-[var(--ink)]">
               {current.intent_label}
             </p>
 
@@ -158,15 +161,15 @@ export function JourneyReplayPlayer({ journeys }: Props) {
               <span
                 className={`rounded-full px-2 py-0.5 font-medium ${
                   current.success
-                    ? "bg-emerald-100 text-emerald-700"
-                    : "bg-rose-100 text-rose-700"
+                    ? "bg-emerald-500/15 text-emerald-300"
+                    : "bg-rose-500/15 text-rose-300"
                 }`}
               >
                 {current.success ? "succeeded" : "failed"}
               </span>
               <span
                 className={`rounded-full px-2 py-0.5 font-medium ${
-                  current.cited ? "bg-blue-100 text-blue-700" : "bg-slate-200 text-slate-700"
+                  current.cited ? "bg-cyan-500/15 text-cyan-300" : "bg-white/10 text-[var(--ink-soft)]"
                 }`}
               >
                 {current.cited ? "brand cited" : "uncited"}
@@ -175,18 +178,18 @@ export function JourneyReplayPlayer({ journeys }: Props) {
                 {current.sentiment}
               </span>
               {current.canonical_url ? (
-                <span className="rounded-full bg-slate-100 px-2 py-0.5 font-mono text-slate-600 dark:bg-slate-800 dark:text-slate-300">
+                <span className="rounded-full bg-white/10 px-2 py-0.5 font-mono text-[var(--ink-soft)]">
                   {current.canonical_url}
                 </span>
               ) : null}
               {current.dropoff_reason ? (
-                <span className="inline-flex items-center gap-1 rounded-full bg-amber-100 px-2 py-0.5 font-medium text-amber-800">
+                <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 font-medium text-amber-300">
                   <ShieldAlert className="h-3 w-3" /> {current.dropoff_reason}
                 </span>
               ) : null}
             </div>
 
-            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+            <p className="text-sm leading-relaxed text-[var(--ink-soft)]">
               {current.transcript_preview}
             </p>
           </motion.div>
@@ -213,9 +216,10 @@ export function JourneyReplayPlayer({ journeys }: Props) {
               <span
                 className="block h-2 rounded-full transition-all"
                 style={{
-                  backgroundColor: active || done ? a : "#e2e8f0",
-                  opacity: done && !active ? 0.5 : 1,
+                  backgroundColor: active || done ? a : "rgba(140,165,220,0.18)",
+                  opacity: done && !active ? 0.55 : 1,
                   transform: active ? "scaleY(1.8)" : "scaleY(1)",
+                  boxShadow: active ? `0 0 12px ${a}` : undefined,
                 }}
               />
             </button>
@@ -232,7 +236,7 @@ export function JourneyReplayPlayer({ journeys }: Props) {
               setPlaying(false);
               setIndex(clamp(index - 1));
             }}
-            className="rounded-md p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="rounded-md p-2 text-[var(--ink-soft)] transition hover:bg-white/10 hover:text-[var(--ink)]"
             aria-label="Previous"
           >
             <SkipBack className="h-4 w-4" />
@@ -240,7 +244,7 @@ export function JourneyReplayPlayer({ journeys }: Props) {
           <button
             type="button"
             onClick={togglePlay}
-            className="inline-flex items-center gap-1.5 rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-600 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-blue-500 dark:hover:text-white"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-cyan-400 to-violet-500 px-4 py-2 text-sm font-semibold text-[#04060f] shadow-[0_0_24px_-6px_var(--glow-cyan)] transition hover:brightness-110"
           >
             {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
             {playing ? "Pause" : index >= count - 1 ? "Replay" : "Play"}
@@ -251,7 +255,7 @@ export function JourneyReplayPlayer({ journeys }: Props) {
               setPlaying(false);
               setIndex(clamp(index + 1));
             }}
-            className="rounded-md p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="rounded-md p-2 text-[var(--ink-soft)] transition hover:bg-white/10 hover:text-[var(--ink)]"
             aria-label="Next"
           >
             <SkipForward className="h-4 w-4" />
@@ -262,7 +266,7 @@ export function JourneyReplayPlayer({ journeys }: Props) {
               setPlaying(false);
               setIndex(0);
             }}
-            className="rounded-md p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
+            className="rounded-md p-2 text-[var(--ink-soft)] transition hover:bg-white/10 hover:text-[var(--ink)]"
             aria-label="Restart"
           >
             <RotateCcw className="h-4 w-4" />
@@ -270,10 +274,10 @@ export function JourneyReplayPlayer({ journeys }: Props) {
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="font-mono text-xs text-slate-500">
+          <span className="font-mono text-xs text-[var(--ink-faint)]">
             {index + 1} / {count}
           </span>
-          <div className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-slate-50 p-1 text-xs dark:border-slate-800 dark:bg-slate-900/40">
+          <div className="inline-flex items-center gap-1 rounded-lg border border-[var(--border)] bg-black/25 p-1 text-xs">
             {SPEEDS.map((s, i) => (
               <button
                 key={s.label}
@@ -281,8 +285,8 @@ export function JourneyReplayPlayer({ journeys }: Props) {
                 onClick={() => setSpeedIdx(i)}
                 className={`rounded-md px-2 py-0.5 font-medium transition ${
                   speedIdx === i
-                    ? "bg-white text-slate-900 shadow-sm dark:bg-slate-800 dark:text-slate-100"
-                    : "text-slate-500 hover:text-slate-900 dark:hover:text-slate-100"
+                    ? "bg-gradient-to-r from-cyan-500/25 to-violet-500/25 text-[var(--ink)]"
+                    : "text-[var(--ink-faint)] hover:text-[var(--ink)]"
                 }`}
               >
                 {s.label}
