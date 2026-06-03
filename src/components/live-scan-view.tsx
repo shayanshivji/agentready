@@ -67,7 +67,7 @@ export function LiveScanView({
   return (
     <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-10">
       <header className="flex flex-col gap-3">
-        <Link href="/" className="inline-flex w-fit items-center gap-1 text-xs text-[var(--ink-faint)] transition hover:text-[var(--accent)]">
+        <Link href="/app" className="inline-flex w-fit items-center gap-1 text-xs text-[var(--ink-faint)] transition hover:text-[var(--accent)]">
           <ArrowLeft className="h-3.5 w-3.5" /> All brands
         </Link>
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -141,8 +141,8 @@ export function LiveScanView({
               </p>
             )}
             <Link
-              href="/"
-              className="inline-flex w-fit items-center gap-1 rounded-md border border-amber-400 bg-white/70 px-3 py-1.5 text-xs font-medium text-amber-800 hover:bg-white dark:border-amber-500/40 dark:bg-transparent dark:text-amber-200"
+              href="/app"
+              className="inline-flex w-fit items-center gap-1 rounded-md border border-amber-500/40 bg-transparent px-3 py-1.5 text-xs font-medium text-amber-200 hover:bg-white/5"
             >
               <ArrowLeft className="h-3.5 w-3.5" /> Pick a curated demo brand
             </Link>
