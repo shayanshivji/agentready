@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "5c0a7ed9-48fd-42c7-8ef5-d2f63afa6015",
+    "id": "d7c27a9b-c127-4f58-a4a3-f4f73a01d589",
     "brand": {
       "id": "c8bac468-ed41-465d-a0cc-dff08b749bd2",
       "slug": "yeti",
@@ -9,8 +9,8 @@
     "url": "https://www.yeti.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-03T17:20:34.379719",
-    "completed_at": "2026-06-03T17:20:34.484306",
+    "started_at": "2026-06-04T02:12:37.663335",
+    "completed_at": "2026-06-04T02:12:39.404664",
     "total_score": 14.83,
     "band": "Agent-Blind",
     "dimensions": [

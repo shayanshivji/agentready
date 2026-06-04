@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "41e2a481-8762-4c36-a198-9acec9dfa0d8",
+    "id": "e90ef57e-c3e1-421b-b9b7-ad97bdd88bb2",
     "brand": {
       "id": "53523844-74a4-4c0a-9a58-03e60103f459",
       "slug": "owala",
@@ -9,8 +9,8 @@
     "url": "https://www.owala.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-03T17:20:36.768591",
-    "completed_at": "2026-06-03T17:20:36.886433",
+    "started_at": "2026-06-04T02:12:41.664227",
+    "completed_at": "2026-06-04T02:12:43.786049",
     "total_score": 20.33,
     "band": "Agent-Exposed",
     "dimensions": [

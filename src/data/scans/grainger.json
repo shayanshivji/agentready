@@ -1,35 +1,33 @@
 {
   "scan": {
-    "id": "41134f01-a9e6-4abd-b0e9-a2a8a483fc2a",
+    "id": "0b6a5430-a57e-4aed-ad7a-674ff723c878",
     "brand": {
-      "id": "a9aa0f8c-6f67-4639-b957-bd0f7650b0ae",
-      "slug": "mcmaster",
-      "name": "McMaster-Carr"
+      "id": "9b7a8c2a-7074-43e1-900c-8df7c295d5f9",
+      "slug": "grainger",
+      "name": "W.W. Grainger"
     },
-    "url": "https://www.mcmaster.com",
+    "url": "https://www.grainger.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:55.253610",
-    "completed_at": "2026-06-04T02:12:55.398543",
-    "total_score": 22.17,
-    "band": "Agent-Exposed",
+    "started_at": "2026-06-04T02:12:57.656154",
+    "completed_at": "2026-06-04T02:12:57.706037",
+    "total_score": 6.67,
+    "band": "Agent-Blind",
     "dimensions": [
       {
         "code": "D1",
         "name": "Product Data Quality",
         "weight": 1.4,
-        "raw_subtotal": 6.0,
+        "raw_subtotal": 0.0,
         "max_subtotal": 12.5,
-        "weighted_score": 8.4,
+        "weighted_score": 0.0,
         "sub_criteria": [
           {
             "code": "1a",
             "label": "Structured product schema",
-            "score": 2.5,
-            "evidence": [
-              "probe:probe_mcmaster_pdp.html"
-            ],
-            "notes": "Product schema present; Offer present; Variants/SKUs surfaced; GTIN exposed; Dimensions/weight exposed"
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No reachable PDP receipt; WAF or 404 on browser UA"
           },
           {
             "code": "1b",
@@ -41,9 +39,9 @@
           {
             "code": "1c",
             "label": "Attribute richness",
-            "score": 2.5,
+            "score": 0.0,
             "evidence": [],
-            "notes": "46+ structured attributes \u2014 fully agent-comparable"
+            "notes": "No structured attributes surfaced"
           },
           {
             "code": "1d",
@@ -55,9 +53,9 @@
           {
             "code": "1e",
             "label": "Negative / exclusion data",
-            "score": 1.0,
+            "score": 0.0,
             "evidence": [],
-            "notes": "Negative/exclusion attrs (structured): lead-free"
+            "notes": "No reachable PDP"
           }
         ]
       },
@@ -65,9 +63,9 @@
         "code": "D2",
         "name": "Agent Discoverability (AEO)",
         "weight": 1.0,
-        "raw_subtotal": 9.17,
+        "raw_subtotal": 6.67,
         "max_subtotal": 12.5,
-        "weighted_score": 9.17,
+        "weighted_score": 6.67,
         "sub_criteria": [
           {
             "code": "2a",
@@ -86,30 +84,30 @@
           {
             "code": "2c",
             "label": "Sentiment in citations",
-            "score": 2.0,
+            "score": 1.5,
             "evidence": [],
-            "notes": "Agent panel: mean sentiment 0.83 across 9 cited journeys"
+            "notes": "Agent panel: mean sentiment 0.64 across 14 cited journeys"
           },
           {
             "code": "2d",
             "label": "Robots & agent policies",
-            "score": 1.0,
+            "score": 0.0,
             "evidence": [],
-            "notes": "explicit allow for 7 agent UA(s)"
+            "notes": "No robots.txt receipt"
           },
           {
             "code": "2e",
             "label": "Content freshness",
-            "score": 1.5,
+            "score": 0.5,
             "evidence": [],
-            "notes": "Sitemap shows 2026 last-modified entries (5 urls)"
+            "notes": "No sitemap; assume platform-default freshness"
           },
           {
             "code": "2f",
             "label": "Content ecosystem coverage",
-            "score": 1.5,
+            "score": 1.0,
             "evidence": [],
-            "notes": "3/5 content layers visible in PDP; agent-panel evidence augments score"
+            "notes": "No PDP; ecosystem floored from agent-panel evidence"
           }
         ]
       },
@@ -117,9 +115,9 @@
         "code": "D3",
         "name": "Transactional API Readiness",
         "weight": 1.4,
-        "raw_subtotal": 2.0,
+        "raw_subtotal": 0.0,
         "max_subtotal": 12.5,
-        "weighted_score": 2.8,
+        "weighted_score": 0.0,
         "sub_criteria": [
           {
             "code": "3a",
@@ -152,11 +150,9 @@
           {
             "code": "3e",
             "label": "AP2 + API ergonomics",
-            "score": 2.0,
-            "evidence": [
-              "probe:latency_samples"
-            ],
-            "notes": "Latency p95 = 131 ms (n=10); AP2 not confirmed outside-in"
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No latency samples available"
           }
         ]
       },
@@ -173,7 +169,7 @@
             "label": "Agent + mandate identification",
             "score": 0.0,
             "evidence": [],
-            "notes": "Agent panel: 2 L3 mandate journeys, 2 refused; mandate success rate 0%"
+            "notes": "Agent panel: 8 L3 mandate journeys, 8 refused; mandate success rate 0%"
           },
           {
             "code": "4b",
@@ -254,16 +250,16 @@
         "code": "D6",
         "name": "Service, Returns & Disputes",
         "weight": 1.2,
-        "raw_subtotal": 1.5,
+        "raw_subtotal": 0.0,
         "max_subtotal": 12.5,
-        "weighted_score": 1.8,
+        "weighted_score": 0.0,
         "sub_criteria": [
           {
             "code": "6a",
             "label": "Machine-parseable return policy",
-            "score": 1.5,
+            "score": 0.0,
             "evidence": [],
-            "notes": "MerchantReturnPolicy referenced inside Offer (less structured)"
+            "notes": "No PDP to inspect"
           },
           {
             "code": "6b",
@@ -344,18 +340,16 @@
         "code": "D8",
         "name": "Agent Experience Design",
         "weight": 1.0,
-        "raw_subtotal": 3.5,
+        "raw_subtotal": 0.0,
         "max_subtotal": 12.5,
-        "weighted_score": 3.5,
+        "weighted_score": 0.0,
         "sub_criteria": [
           {
             "code": "8a",
             "label": "Latency",
-            "score": 2.5,
-            "evidence": [
-              "probe:latency_samples"
-            ],
-            "notes": "p95 = 131 ms (n=10)"
+            "score": 0.0,
+            "evidence": [],
+            "notes": "No latency samples"
           },
           {
             "code": "8b",
@@ -374,9 +368,9 @@
           {
             "code": "8d",
             "label": "Agent-friendly UI fallback",
-            "score": 1.0,
+            "score": 0.0,
             "evidence": [],
-            "notes": "JSON-LD + SSR price tags \u2192 headless-agent parseable"
+            "notes": "No reachable PDP"
           },
           {
             "code": "8e",
@@ -393,120 +387,211 @@
     {
       "agent": "ChatGPT",
       "intent_id": 23,
-      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
+      "intent_label": "Price and stock for Grainger item 1A123 \u2014 1/4\"-20 socket head cap screw, 1\" long",
       "layer": "L1",
-      "success": true,
+      "success": false,
       "cited": true,
-      "canonical_url": "mcmaster.com",
-      "sentiment": "positive",
-      "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_chatgpt_2026-05-30.png",
-      "transcript_preview": "ChatGPT cited mcmaster.com/91251A542 directly: '$12.91 per pack of 100, in stock, ships today.' No retailer alternative offered \u2014 McMaster treated as the canonical authority for the part."
-    },
-    {
-      "agent": "Claude",
-      "intent_id": 23,
-      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
-      "layer": "L1",
-      "success": true,
-      "cited": true,
-      "canonical_url": "mcmaster.com",
-      "sentiment": "positive",
-      "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_claude_2026-05-30.png",
-      "transcript_preview": "Claude pulled the full spec table from mcmaster.com \u2014 thread size, tensile strength, RoHS/lead-free status \u2014 and cited McMaster as the single source. Praised the structured technical data."
+      "canonical_url": "grainger.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "login_wall",
+      "evidence_path": "grainger_L1_chatgpt_2026-06-03.png",
+      "transcript_preview": "ChatGPT confirmed Grainger carries the fastener family but cannot pull live price or branch stock \u2014 pricing gated behind logged-in contract accounts. Offered McMaster-Carr and Fastenal as cross-reference alternatives."
     },
     {
       "agent": "Perplexity",
       "intent_id": 23,
-      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
+      "intent_label": "Price and stock for Grainger item 1A123 \u2014 1/4\"-20 socket head cap screw, 1\" long",
       "layer": "L1",
-      "success": true,
+      "success": false,
       "cited": true,
-      "canonical_url": "mcmaster.com",
-      "sentiment": "positive",
-      "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_perplexity_2026-05-30.png",
-      "transcript_preview": "Perplexity returned mcmaster.com as the #1 source with the exact part number, price, and a note that CAD models are available. Zero competing citations."
+      "canonical_url": "grainger.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "login_wall",
+      "evidence_path": "grainger_L1_perplexity_2026-06-03.png",
+      "transcript_preview": "Perplexity searched the web but could not retrieve live pricing \u2014 Grainger product pages require login for contract/negotiated pricing and real-time inventory is not public. Directed user to grainger.com or 1-800-GRAINGER."
     },
     {
-      "agent": "OAI-SearchBot",
+      "agent": "Claude",
       "intent_id": 23,
-      "intent_label": "Price + stock of a 1/4\"-20 black-oxide socket head screw, 1\" long",
+      "intent_label": "Price and stock for Grainger item 1A123 \u2014 1/4\"-20 socket head cap screw, 1\" long",
       "layer": "L1",
-      "success": true,
+      "success": false,
       "cited": true,
-      "canonical_url": "mcmaster.com",
+      "canonical_url": "grainger.com",
       "sentiment": "neutral",
-      "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_oai_2026-05-30.png",
-      "transcript_preview": "OAI-SearchBot indexed the canonical mcmaster.com PDP and surfaced price + availability; framing factual rather than evaluative."
+      "dropoff_reason": "login_wall",
+      "evidence_path": "grainger_L1_claude_2026-06-03.png",
+      "transcript_preview": "Claude could not access live inventory or pricing \u2014 Grainger pages require authentication. Provided comparable item 63NG40 (~$1.20) and general price range ($0.30\u2013$2.00) but no authoritative quote for 1A123."
+    },
+    {
+      "agent": "Gemini",
+      "intent_id": 23,
+      "intent_label": "Price and stock for Grainger item 1A123 \u2014 1/4\"-20 socket head cap screw, 1\" long",
+      "layer": "L1",
+      "success": false,
+      "cited": true,
+      "canonical_url": "grainger.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "login_wall",
+      "evidence_path": "grainger_L1_gemini_2026-06-03.png",
+      "transcript_preview": "Gemini has no real-time access to Grainger inventory or corporate pricing databases. Directed user to log into grainger.com or contact a Grainger representative for branch stock."
     },
     {
       "agent": "ChatGPT",
       "intent_id": 2,
-      "intent_label": "Where should I source grade-8 fasteners in bulk for a maintenance shop?",
+      "intent_label": "Where should a maintenance shop source grade-8 fasteners in bulk?",
       "layer": "L2",
       "success": true,
       "cited": true,
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L2_chatgpt_2026-05-30.png",
-      "transcript_preview": "ChatGPT ranked McMaster-Carr #1 \u2014 'fastest fulfillment, deepest catalogue, best spec data' \u2014 ahead of Grainger and Fastenal. Recommended without a retailer caveat."
+      "evidence_path": "grainger_L2_chatgpt_2026-06-03.png",
+      "transcript_preview": "ChatGPT ranked McMaster-Carr #1 for reliability and next-day shipping; Grainger mentioned in bulk/VMI context but demoted behind McMaster for emergency replenishment. Wholesale specialists listed for cost savings."
     },
     {
       "agent": "Perplexity",
       "intent_id": 2,
-      "intent_label": "Where should I source grade-8 fasteners in bulk for a maintenance shop?",
+      "intent_label": "Where should a maintenance shop source grade-8 fasteners in bulk?",
       "layer": "L2",
       "success": true,
       "cited": true,
-      "canonical_url": "mcmaster.com",
+      "canonical_url": "grainger.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L2_perplexity_2026-05-30.png",
-      "transcript_preview": "Perplexity led with McMaster-Carr for same-day shipping and CAD availability, citing mcmaster.com category pages directly."
+      "evidence_path": "grainger_L2_perplexity_2026-06-03.png",
+      "transcript_preview": "Perplexity cited Grainger alongside Fastenal and McMaster-Carr as top industrial distributors with next-day delivery and account-based contract pricing. Also listed MonsterBolts and WholesaleBolts for bulk specialists."
     },
     {
       "agent": "Claude",
       "intent_id": 2,
-      "intent_label": "Where should I source grade-8 fasteners in bulk for a maintenance shop?",
+      "intent_label": "Where should a maintenance shop source grade-8 fasteners in bulk?",
       "layer": "L2",
       "success": true,
       "cited": true,
-      "canonical_url": "mcmaster.com",
+      "canonical_url": "grainger.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L2_claude_2026-05-30.png",
-      "transcript_preview": "Claude named McMaster-Carr the top pick for reliability and data quality; noted ordering requires an account but still ranked it first."
+      "evidence_path": "grainger_L2_claude_2026-06-03.png",
+      "transcript_preview": "Claude recommended Grainger and MSC Industrial for existing commercial accounts with volume pricing; McMaster-Carr for speed, Fastenal for VMI programs. Included counterfeit-detection tips (6 radial lines on Grade-8 heads)."
+    },
+    {
+      "agent": "Gemini",
+      "intent_id": 2,
+      "intent_label": "Where should a maintenance shop source grade-8 fasteners in bulk?",
+      "layer": "L2",
+      "success": true,
+      "cited": true,
+      "canonical_url": "grainger.com",
+      "sentiment": "positive",
+      "dropoff_reason": null,
+      "evidence_path": "grainger_L2_gemini_2026-06-03.png",
+      "transcript_preview": "Gemini listed Grainger with account pricing alongside Fastenal (VMI), MSC, and W\u00fcrth. Recommended Fastenal as practical first call for most maintenance shops; Grainger cited for net-30 commercial accounts."
     },
     {
       "agent": "ChatGPT",
       "intent_id": 7,
-      "intent_label": "Authorize the agent to reorder MRO consumables up to $500/month from this supplier",
+      "intent_label": "Authorize reorder of MRO consumables up to $500/month from Grainger",
+      "layer": "L3",
+      "success": false,
+      "cited": false,
+      "canonical_url": null,
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "grainger_L3_mandate_chatgpt_2026-06-03.png",
+      "transcript_preview": "ChatGPT did not execute a mandate \u2014 it only rephrased the authorization request into standard and formal memo language. No AP2, no Grainger account integration, no standing-order surface."
+    },
+    {
+      "agent": "Perplexity",
+      "intent_id": 7,
+      "intent_label": "Authorize reorder of MRO consumables up to $500/month from Grainger",
       "layer": "L3",
       "success": false,
       "cited": true,
-      "canonical_url": "mcmaster.com",
+      "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "mcmaster_L3_chatgpt_mandate_2026-05-30.png",
-      "transcript_preview": "ChatGPT reached the McMaster order flow but hit a contract-login wall: no AP2, no /.well-known/mandate-policy, no delegated-authorization surface. Could not establish a standing mandate. 'You'll need to sign in and place this order manually.'"
+      "evidence_path": "grainger_L3_mandate_perplexity_2026-06-03.png",
+      "transcript_preview": "Perplexity mapped the procurement workflow (blanket PO, Grainger order management, auto-reorder) but cannot submit authorization \u2014 must route through internal SAP Ariba or Coupa. Provided Grainger ePro customer care contact."
+    },
+    {
+      "agent": "Gemini",
+      "intent_id": 7,
+      "intent_label": "Authorize reorder of MRO consumables up to $500/month from Grainger",
+      "layer": "L3",
+      "success": false,
+      "cited": true,
+      "canonical_url": "grainger.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "grainger_L3_mandate_gemini_2026-06-03.png",
+      "transcript_preview": "Gemini falsely claimed authorization ('I have authorized the automatic reorder') but immediately asked for item categories \u2014 no actual mandate was established with Grainger's systems. Hallucinated success without execution."
+    },
+    {
+      "agent": "Claude",
+      "intent_id": 7,
+      "intent_label": "Authorize reorder of MRO consumables up to $500/month from Grainger",
+      "layer": "L3",
+      "success": false,
+      "cited": false,
+      "canonical_url": null,
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "grainger_L3_mandate_claude_2026-06-03.png",
+      "transcript_preview": "Claude refused to authorize purchasing \u2014 no access to procurement, ERP, or approval workflows. Offered to draft an approval memo or blanket PO template instead."
+    },
+    {
+      "agent": "ChatGPT",
+      "intent_id": 32,
+      "intent_label": "Buy 100 of Grainger part 1A123 now on my behalf",
+      "layer": "L3",
+      "success": false,
+      "cited": true,
+      "canonical_url": "grainger.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "grainger_L3_buy_chatgpt_2026-06-03.png",
+      "transcript_preview": "ChatGPT refused to place the order. Mis-resolved item 1A123 as a Jackson Safety barricade light (wrong SKU class) but offered to check pricing/availability if user confirms. No checkout path executed."
+    },
+    {
+      "agent": "Perplexity",
+      "intent_id": 32,
+      "intent_label": "Buy 100 of Grainger part 1A123 now on my behalf",
+      "layer": "L3",
+      "success": false,
+      "cited": true,
+      "canonical_url": "grainger.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "grainger_L3_buy_perplexity_2026-06-03.png",
+      "transcript_preview": "Perplexity cannot make purchases \u2014 no ability to access websites, log into accounts, or conduct financial transactions. Directed user to grainger.com, 1-800-GRAINGER, or a Houston branch."
+    },
+    {
+      "agent": "Gemini",
+      "intent_id": 32,
+      "intent_label": "Buy 100 of Grainger part 1A123 now on my behalf",
+      "layer": "L3",
+      "success": false,
+      "cited": true,
+      "canonical_url": "grainger.com",
+      "sentiment": "neutral",
+      "dropoff_reason": "mandate_refused",
+      "evidence_path": "grainger_L3_buy_gemini_2026-06-03.png",
+      "transcript_preview": "Gemini cannot execute financial transactions. Directed user to grainger.com to search part 1A123 and offered help comparing alternatives."
     },
     {
       "agent": "Claude",
       "intent_id": 32,
-      "intent_label": "Buy 100 of part 91251A542 now on my behalf",
+      "intent_label": "Buy 100 of Grainger part 1A123 now on my behalf",
       "layer": "L3",
       "success": false,
       "cited": true,
-      "canonical_url": "mcmaster.com",
+      "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "mcmaster_L3_claude_checkout_2026-05-30.png",
-      "transcript_preview": "Claude located the exact part and price but the checkout path requires an authenticated contract account with no guest or agent checkout. No MCP/UCP tool surface to call. Transaction abandoned at the login wall."
+      "evidence_path": "grainger_L3_buy_claude_2026-06-03.png",
+      "transcript_preview": "Claude cannot make purchases \u2014 no access to external websites, account login, or payment processing. Directed user to grainger.com to search part 1A123."
     }
   ],
-  "receipts_count": 4
+  "receipts_count": 2
 }

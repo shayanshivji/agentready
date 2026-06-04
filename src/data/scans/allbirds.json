@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "b4737578-3fd0-4972-af40-86a1d6553ed4",
+    "id": "5de379db-58c5-408c-8e62-412ca39c78e4",
     "brand": {
       "id": "09ce3118-0c56-4f71-97fc-6af7a8938583",
       "slug": "allbirds",
@@ -9,8 +9,8 @@
     "url": "https://www.allbirds.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-03T17:20:39.253298",
-    "completed_at": "2026-06-03T17:20:39.466271",
+    "started_at": "2026-06-04T02:12:46.085726",
+    "completed_at": "2026-06-04T02:12:47.614119",
     "total_score": 33.0,
     "band": "Agent-Exposed",
     "dimensions": [

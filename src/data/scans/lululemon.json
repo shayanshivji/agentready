@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "a05e540a-4407-4206-bf7b-9fc7dbf1f720",
+    "id": "eab283ea-e64f-4a0b-876f-29a871599a02",
     "brand": {
       "id": "010eb781-30e5-4241-910c-e315d2778fd2",
       "slug": "lululemon",
@@ -9,8 +9,8 @@
     "url": "https://www.lululemon.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-03T17:20:41.677118",
-    "completed_at": "2026-06-03T17:20:41.781810",
+    "started_at": "2026-06-04T02:12:49.867140",
+    "completed_at": "2026-06-04T02:12:50.401695",
     "total_score": 11.0,
     "band": "Agent-Blind",
     "dimensions": [

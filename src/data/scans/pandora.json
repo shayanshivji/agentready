@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "f5526e4e-e3f4-4195-8280-a16f52ad588a",
+    "id": "94b1a71a-0c05-4ee6-8ad4-161da8ac0b53",
     "brand": {
       "id": "5c124814-171d-4a3e-aac6-bb888ecc9d4a",
       "slug": "pandora",
@@ -9,8 +9,8 @@
     "url": "https://www.pandora.net",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-03T17:20:44.284436",
-    "completed_at": "2026-06-03T17:20:44.372976",
+    "started_at": "2026-06-04T02:12:52.716522",
+    "completed_at": "2026-06-04T02:12:52.969971",
     "total_score": 9.83,
     "band": "Agent-Blind",
     "dimensions": [

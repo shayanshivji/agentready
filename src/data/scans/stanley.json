@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "0daacf48-87ff-4bdc-8298-ccd91e0b8b52",
+    "id": "c73e5cdd-6cad-4c15-b9ad-68cda75c217f",
     "brand": {
       "id": "6017387f-677e-4f69-89b5-42bfa40bf2be",
       "slug": "stanley",
@@ -9,8 +9,8 @@
     "url": "https://www.stanley1913.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-03T17:20:31.554124",
-    "completed_at": "2026-06-03T17:20:31.675420",
+    "started_at": "2026-06-04T02:12:30.835712",
+    "completed_at": "2026-06-04T02:12:32.278355",
     "total_score": 34.67,
     "band": "Agent-Exposed",
     "dimensions": [

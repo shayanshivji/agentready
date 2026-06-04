@@ -11,9 +11,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "0daacf48-87ff-4bdc-8298-ccd91e0b8b52",
-      "started_at": "2026-06-03T17:20:31.554124",
-      "completed_at": "2026-06-03T17:20:31.675420",
+      "id": "c73e5cdd-6cad-4c15-b9ad-68cda75c217f",
+      "started_at": "2026-06-04T02:12:30.835712",
+      "completed_at": "2026-06-04T02:12:32.278355",
       "status": "completed",
       "total_score": 34.67,
       "band": "Agent-Exposed"
@@ -31,9 +31,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "5c0a7ed9-48fd-42c7-8ef5-d2f63afa6015",
-      "started_at": "2026-06-03T17:20:34.379719",
-      "completed_at": "2026-06-03T17:20:34.484306",
+      "id": "d7c27a9b-c127-4f58-a4a3-f4f73a01d589",
+      "started_at": "2026-06-04T02:12:37.663335",
+      "completed_at": "2026-06-04T02:12:39.404664",
       "status": "completed",
       "total_score": 14.83,
       "band": "Agent-Blind"
@@ -51,9 +51,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "41e2a481-8762-4c36-a198-9acec9dfa0d8",
-      "started_at": "2026-06-03T17:20:36.768591",
-      "completed_at": "2026-06-03T17:20:36.886433",
+      "id": "e90ef57e-c3e1-421b-b9b7-ad97bdd88bb2",
+      "started_at": "2026-06-04T02:12:41.664227",
+      "completed_at": "2026-06-04T02:12:43.786049",
       "status": "completed",
       "total_score": 20.33,
       "band": "Agent-Exposed"
@@ -71,9 +71,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "b4737578-3fd0-4972-af40-86a1d6553ed4",
-      "started_at": "2026-06-03T17:20:39.253298",
-      "completed_at": "2026-06-03T17:20:39.466271",
+      "id": "5de379db-58c5-408c-8e62-412ca39c78e4",
+      "started_at": "2026-06-04T02:12:46.085726",
+      "completed_at": "2026-06-04T02:12:47.614119",
       "status": "completed",
       "total_score": 33.0,
       "band": "Agent-Exposed"
@@ -91,9 +91,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "a05e540a-4407-4206-bf7b-9fc7dbf1f720",
-      "started_at": "2026-06-03T17:20:41.677118",
-      "completed_at": "2026-06-03T17:20:41.781810",
+      "id": "eab283ea-e64f-4a0b-876f-29a871599a02",
+      "started_at": "2026-06-04T02:12:49.867140",
+      "completed_at": "2026-06-04T02:12:50.401695",
       "status": "completed",
       "total_score": 11.0,
       "band": "Agent-Blind"
@@ -111,9 +111,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "f5526e4e-e3f4-4195-8280-a16f52ad588a",
-      "started_at": "2026-06-03T17:20:44.284436",
-      "completed_at": "2026-06-03T17:20:44.372976",
+      "id": "94b1a71a-0c05-4ee6-8ad4-161da8ac0b53",
+      "started_at": "2026-06-04T02:12:52.716522",
+      "completed_at": "2026-06-04T02:12:52.969971",
       "status": "completed",
       "total_score": 9.83,
       "band": "Agent-Blind"
@@ -131,12 +131,32 @@
       80.0
     ],
     "latest_scan": {
-      "id": "13a2fe74-44e9-4b2e-910c-0b7fe97586d0",
-      "started_at": "2026-06-03T17:20:46.788256",
-      "completed_at": "2026-06-03T17:20:46.882994",
+      "id": "41134f01-a9e6-4abd-b0e9-a2a8a483fc2a",
+      "started_at": "2026-06-04T02:12:55.253610",
+      "completed_at": "2026-06-04T02:12:55.398543",
       "status": "completed",
       "total_score": 22.17,
       "band": "Agent-Exposed"
+    }
+  },
+  {
+    "id": "9b7a8c2a-7074-43e1-900c-8df7c295d5f9",
+    "slug": "grainger",
+    "name": "W.W. Grainger",
+    "domain": "grainger.com",
+    "archetype": "B2B Distributor",
+    "target_curve": "L4",
+    "target_band": [
+      70.0,
+      80.0
+    ],
+    "latest_scan": {
+      "id": "0b6a5430-a57e-4aed-ad7a-674ff723c878",
+      "started_at": "2026-06-04T02:12:57.656154",
+      "completed_at": "2026-06-04T02:12:57.706037",
+      "status": "completed",
+      "total_score": 6.67,
+      "band": "Agent-Blind"
     }
   }
 ]
