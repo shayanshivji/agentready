@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "5de379db-58c5-408c-8e62-412ca39c78e4",
+    "id": "a090f939-aa5e-4341-bffb-60f52c391ede",
     "brand": {
       "id": "09ce3118-0c56-4f71-97fc-6af7a8938583",
       "slug": "allbirds",
@@ -9,8 +9,8 @@
     "url": "https://www.allbirds.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:46.085726",
-    "completed_at": "2026-06-04T02:12:47.614119",
+    "started_at": "2026-06-09T00:41:50.651654",
+    "completed_at": "2026-06-09T00:41:50.776309",
     "total_score": 33.0,
     "band": "Agent-Exposed",
     "dimensions": [
@@ -408,7 +408,7 @@
       "canonical_url": "allbirds.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "allbirds_L1_chatgpt_2026-05-27.png",
+      "evidence_path": "/evidence/allbirds/allbirds_L1_chatgpt_2026-05-27.png",
       "transcript_preview": "ChatGPT cited Allbirds with carbon-score (CO2e per pair) inline \u2014 only brand in sample where structured carbon attribute reached agent."
     },
     {
@@ -421,7 +421,7 @@
       "canonical_url": "allbirds.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "allbirds_L1_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/allbirds/allbirds_L1_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude cited Allbirds canonically with material breakdown (merino + eucalyptus tree fiber). MerchantReturnPolicy absent \u2014 agent referred to Loop Returns generically."
     },
     {
@@ -434,7 +434,7 @@
       "canonical_url": "allbirds.com",
       "sentiment": "neutral",
       "dropoff_reason": null,
-      "evidence_path": "allbirds_L1_chatgpt_2026-05-27_intent17.png",
+      "evidence_path": "/evidence/allbirds/allbirds_L1_chatgpt_2026-05-27_intent17.png",
       "transcript_preview": "Allbirds cited but agent flagged limited arch-support data. Negative attribute richness gap."
     }
   ],

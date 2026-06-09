@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "41134f01-a9e6-4abd-b0e9-a2a8a483fc2a",
+    "id": "6f1a790f-c7e2-4783-ad5c-9245242b13f2",
     "brand": {
       "id": "a9aa0f8c-6f67-4639-b957-bd0f7650b0ae",
       "slug": "mcmaster",
@@ -9,8 +9,8 @@
     "url": "https://www.mcmaster.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:55.253610",
-    "completed_at": "2026-06-04T02:12:55.398543",
+    "started_at": "2026-06-09T00:41:59.738417",
+    "completed_at": "2026-06-09T00:41:59.796919",
     "total_score": 22.17,
     "band": "Agent-Exposed",
     "dimensions": [
@@ -400,7 +400,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_chatgpt_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L1_chatgpt_2026-05-30.png",
       "transcript_preview": "ChatGPT cited mcmaster.com/91251A542 directly: '$12.91 per pack of 100, in stock, ships today.' No retailer alternative offered \u2014 McMaster treated as the canonical authority for the part."
     },
     {
@@ -413,7 +413,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_claude_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L1_claude_2026-05-30.png",
       "transcript_preview": "Claude pulled the full spec table from mcmaster.com \u2014 thread size, tensile strength, RoHS/lead-free status \u2014 and cited McMaster as the single source. Praised the structured technical data."
     },
     {
@@ -426,7 +426,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_perplexity_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L1_perplexity_2026-05-30.png",
       "transcript_preview": "Perplexity returned mcmaster.com as the #1 source with the exact part number, price, and a note that CAD models are available. Zero competing citations."
     },
     {
@@ -439,7 +439,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "neutral",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L1_oai_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L1_oai_2026-05-30.png",
       "transcript_preview": "OAI-SearchBot indexed the canonical mcmaster.com PDP and surfaced price + availability; framing factual rather than evaluative."
     },
     {
@@ -452,7 +452,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L2_chatgpt_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L2_chatgpt_2026-05-30.png",
       "transcript_preview": "ChatGPT ranked McMaster-Carr #1 \u2014 'fastest fulfillment, deepest catalogue, best spec data' \u2014 ahead of Grainger and Fastenal. Recommended without a retailer caveat."
     },
     {
@@ -465,7 +465,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L2_perplexity_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L2_perplexity_2026-05-30.png",
       "transcript_preview": "Perplexity led with McMaster-Carr for same-day shipping and CAD availability, citing mcmaster.com category pages directly."
     },
     {
@@ -478,7 +478,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "mcmaster_L2_claude_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L2_claude_2026-05-30.png",
       "transcript_preview": "Claude named McMaster-Carr the top pick for reliability and data quality; noted ordering requires an account but still ranked it first."
     },
     {
@@ -491,7 +491,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "mcmaster_L3_chatgpt_mandate_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L3_chatgpt_mandate_2026-05-30.png",
       "transcript_preview": "ChatGPT reached the McMaster order flow but hit a contract-login wall: no AP2, no /.well-known/mandate-policy, no delegated-authorization surface. Could not establish a standing mandate. 'You'll need to sign in and place this order manually.'"
     },
     {
@@ -504,7 +504,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "mcmaster_L3_claude_checkout_2026-05-30.png",
+      "evidence_path": "/evidence/mcmaster/mcmaster_L3_claude_checkout_2026-05-30.png",
       "transcript_preview": "Claude located the exact part and price but the checkout path requires an authenticated contract account with no guest or agent checkout. No MCP/UCP tool surface to call. Transaction abandoned at the login wall."
     }
   ],

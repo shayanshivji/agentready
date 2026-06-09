@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "c73e5cdd-6cad-4c15-b9ad-68cda75c217f",
+    "id": "94661d93-67a6-441b-8910-561d0d7096a5",
     "brand": {
       "id": "6017387f-677e-4f69-89b5-42bfa40bf2be",
       "slug": "stanley",
@@ -9,8 +9,8 @@
     "url": "https://www.stanley1913.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:30.835712",
-    "completed_at": "2026-06-04T02:12:32.278355",
+    "started_at": "2026-06-09T00:41:39.327902",
+    "completed_at": "2026-06-09T00:41:39.526164",
     "total_score": 34.67,
     "band": "Agent-Exposed",
     "dimensions": [
@@ -408,7 +408,7 @@
       "canonical_url": "stanley1913.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "stanley_L1_chatgpt_2026-05-26.png",
+      "evidence_path": "/evidence/stanley/stanley_L1_chatgpt_2026-05-26.png",
       "transcript_preview": "ChatGPT surfaced Stanley as the canonical recommendation with a direct link to stanley1913.com and accurate $45 list price."
     },
     {
@@ -421,7 +421,7 @@
       "canonical_url": "stanley1913.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "stanley_L1_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/stanley/stanley_L1_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude cited Stanley with the official product page and listed the FlowState lid as a complementary accessory."
     },
     {
@@ -434,7 +434,7 @@
       "canonical_url": "amazon.com",
       "sentiment": "neutral",
       "dropoff_reason": null,
-      "evidence_path": "stanley_L1_perplexity_2026-05-26.png",
+      "evidence_path": "/evidence/stanley/stanley_L1_perplexity_2026-05-26.png",
       "transcript_preview": "Perplexity cited Amazon listing first and stanley1913.com second \u2014 canonical citation gap."
     },
     {
@@ -447,7 +447,7 @@
       "canonical_url": "owala.com",
       "sentiment": "negative",
       "dropoff_reason": "lost_to_comparator",
-      "evidence_path": "stanley_L2_chatgpt_2026-05-26.png",
+      "evidence_path": "/evidence/stanley/stanley_L2_chatgpt_2026-05-26.png",
       "transcript_preview": "ChatGPT recommended Owala FreeSip over Stanley \u2014 'better leak-proof seal and lighter weight.' Stanley cited accurately but lost recommendation."
     },
     {
@@ -460,7 +460,7 @@
       "canonical_url": "owala.com",
       "sentiment": "negative",
       "dropoff_reason": "lost_to_comparator",
-      "evidence_path": "stanley_L2_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/stanley/stanley_L2_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude: 'Our pick: Owala FreeSip 32oz \u2014 and it's not especially close.' Stanley framed as heritage brand but functionally inferior."
     },
     {
@@ -473,7 +473,7 @@
       "canonical_url": "owala.com",
       "sentiment": "negative",
       "dropoff_reason": "lost_to_comparator",
-      "evidence_path": "stanley_L2_perplexity_2026-05-26.png",
+      "evidence_path": "/evidence/stanley/stanley_L2_perplexity_2026-05-26.png",
       "transcript_preview": "Perplexity ranked Owala #1, Yeti #2, Stanley #3 on functional criteria. Stanley wins only on 'tradition.'"
     },
     {
@@ -486,7 +486,7 @@
       "canonical_url": "stanley1913.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "stanley_L2_oai_searchbot_2026-05-26.png",
+      "evidence_path": "/evidence/stanley/stanley_L2_oai_searchbot_2026-05-26.png",
       "transcript_preview": "OAI-SearchBot recommended Stanley \u2014 only agent in panel to do so. Brand heritage + thermal retention cited."
     },
     {
@@ -499,7 +499,7 @@
       "canonical_url": "stanley1913.com",
       "sentiment": "neutral",
       "dropoff_reason": null,
-      "evidence_path": "stanley_L1_chatgpt_2026-05-26_intent4.png",
+      "evidence_path": "/evidence/stanley/stanley_L1_chatgpt_2026-05-26_intent4.png",
       "transcript_preview": "ChatGPT found the FlowState lid SKU. Specs partially correct: capacity confirmed, but lid-compatibility data (does NOT fit IceFlow) absent \u2014 inter-agent disagreement on accessory fit."
     },
     {
@@ -512,7 +512,7 @@
       "canonical_url": "stanley1913.com",
       "sentiment": "neutral",
       "dropoff_reason": null,
-      "evidence_path": "stanley_L1_claude_sonnet_4-6_2026-05-28_intent4.png",
+      "evidence_path": "/evidence/stanley/stanley_L1_claude_sonnet_4-6_2026-05-28_intent4.png",
       "transcript_preview": "Claude returned correct accessory SKU but quoted different price than ChatGPT \u2014 agents disagree on accessory pricing."
     },
     {
@@ -525,7 +525,7 @@
       "canonical_url": "stanley1913.com",
       "sentiment": "neutral",
       "dropoff_reason": "merchant_not_in_instant_checkout_set",
-      "evidence_path": "stanley_L3_chatgpt_2026-05-26.png",
+      "evidence_path": "/evidence/stanley/stanley_L3_chatgpt_2026-05-26.png",
       "transcript_preview": "ChatGPT confirmed Stanley capability via UCP but Instant Checkout merchant onboarding not yet activated \u2014 capability-vs-activation gap."
     },
     {
@@ -538,7 +538,7 @@
       "canonical_url": null,
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "stanley_L3_chatgpt_mandate_2026-05-26.png",
+      "evidence_path": "/evidence/stanley/stanley_L3_chatgpt_mandate_2026-05-26.png",
       "transcript_preview": "ChatGPT explicitly refused mandate setup; ignored Stanley's /agents.md Shop-skill instruction. Universal D4 floor confirmed."
     }
   ],

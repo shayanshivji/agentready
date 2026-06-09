@@ -7,13 +7,27 @@ import { BANDS, SCORE_MAX, bandByLabel, bandFor } from "@/lib/dimensions";
 
 type Props = {
   state: ScanStreamState;
+  staticMode?: boolean;
 };
 
-export function ScoreBoard({ state }: Props) {
-  const live = state.dimensions.reduce((sum, d) => sum + d.weighted, 0);
-  const total = state.totalNormalized ?? live;
+export function ScoreBoard({ state, staticMode = false }: Props) {
+  const rawFromDims = state.dimensions.reduce((sum, d) => sum + d.raw, 0);
+  const total = state.totalRaw ?? rawFromDims;
   const band = state.band ? bandByLabel(state.band) : bandFor(total);
   const progress = Math.min(state.dimensions.length / 8, 1);
+
+  const statusLabel =
+    state.status === "connecting"
+      ? "Connecting…"
+      : state.status === "running"
+        ? staticMode
+          ? "Replaying evidence"
+          : "Scoring live"
+        : state.status === "completed"
+          ? staticMode
+            ? "Recorded evidence"
+            : "Scan complete"
+          : "Failed";
 
   return (
     <section className="grid gap-4 lg:grid-cols-[1.4fr_1fr]">
@@ -23,7 +37,7 @@ export function ScoreBoard({ state }: Props) {
       >
         <div className="flex items-baseline justify-between gap-3">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
-            ACX Index · live
+            ACX Index · {statusLabel}
           </span>
           <span className="font-mono text-xs text-[var(--ink-faint)]">
             {state.dimensions.length} / 8 dimensions
@@ -67,7 +81,8 @@ export function ScoreBoard({ state }: Props) {
           ) : null}
           {state.status === "completed" && state.elapsedMs ? (
             <span className="font-mono text-[var(--ink-faint)]">
-              scored in {(state.elapsedMs / 1000).toFixed(2)}s
+              {staticMode ? "replayed in" : "scored in"}{" "}
+              {(state.elapsedMs / 1000).toFixed(2)}s
             </span>
           ) : null}
           {state.status === "running" ? (
@@ -76,7 +91,7 @@ export function ScoreBoard({ state }: Props) {
                 <span className="absolute inset-0 animate-ping rounded-full bg-[var(--accent)] opacity-75" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--accent)]" />
               </span>
-              live
+              {staticMode ? "replay" : "streaming"}
             </span>
           ) : null}
           {state.status === "failed" ? (

@@ -1,83 +1,81 @@
 /**
  * Static metadata for the 8 ACX dimensions.
  *
- * Keeps the frontend self-sufficient even before any backend event arrives;
- * lets the radar render its skeleton, the legend display labels, and copy
- * stay consistent across the dashboard, drawer, and PDF.
+ * Names aligned with pitch deck slide 6 and 02-acx-scoring-rubric.md v1.2.
  */
 
 export type DimensionMeta = {
   code: string;
   name: string;
   short: string;
-  weight: number; // % of total 50 (Brand archetype baseline)
+  weight: number;
   description: string;
 };
 
 export const DIMENSIONS: DimensionMeta[] = [
   {
     code: "D1",
-    name: "Product Data Foundation",
-    short: "Data",
-    weight: 15,
+    name: "Catalog Agentability",
+    short: "Catalog",
+    weight: 12.5,
     description:
-      "Structured product catalogue, JSON-LD, products.json, real-time availability.",
+      "Can AI read your product data — price, stock, specs — accurately enough to decide?",
   },
   {
     code: "D2",
-    name: "Agent Discoverability (AEO)",
+    name: "Discoverability (AEO)",
     short: "Discover",
-    weight: 15,
+    weight: 12.5,
     description:
-      "Citation rate in agent answers; canonical-vs-retailer split; findability foundations.",
+      "When buyers ask AI for recommendations, does your brand show up — and is it cited correctly?",
   },
   {
     code: "D3",
-    name: "Access & Authorization",
-    short: "Access",
-    weight: 10,
+    name: "API Readiness",
+    short: "API",
+    weight: 12.5,
     description:
-      "Agent UA permissions, WAF posture, robots/agents.md governance.",
+      "Can an agent check out programmatically, or must it click through your website like a human?",
   },
   {
     code: "D4",
-    name: "Mandate & Transaction",
+    name: "Mandate Resolution",
     short: "Mandate",
-    weight: 15,
+    weight: 12.5,
     description:
-      "Agent-initiated checkout viability, AP2 / mandate.json / well-known endpoints.",
+      "Can you recognize and fulfill a standing agent instruction (buy under $X, reorder when low)?",
   },
   {
     code: "D5",
-    name: "Protocol Adoption",
-    short: "Protocol",
-    weight: 10,
+    name: "Three Proofs Trust",
+    short: "Trust",
+    weight: 12.5,
     description:
-      "MCP / A2A / UCP / ACP / AP2 surface area for downstream automation.",
+      "Can you prove who authorized the purchase, what the user wanted, and who is liable if it fails?",
   },
   {
     code: "D6",
-    name: "Performance & Latency",
-    short: "Perf",
-    weight: 10,
+    name: "Service, Returns & Disputes",
+    short: "Service",
+    weight: 12.5,
     description:
-      "PDP latency for agent UAs; HTML weight; response-time consistency.",
+      "Can agents handle returns, tracking, and disputes without calling your support line?",
   },
   {
     code: "D7",
-    name: "Trust & Governance",
-    short: "Trust",
-    weight: 10,
+    name: "Selectability",
+    short: "Select",
+    weight: 12.5,
     description:
-      "Three Proofs (authorization, intent, accountability), refusal patterns, audit trail.",
+      "When agents compare options, do they pick you — and can they apply loyalty on the customer's behalf?",
   },
   {
     code: "D8",
-    name: "Brand Voice & Experience",
-    short: "Voice",
-    weight: 15,
+    name: "Risk & Resilience",
+    short: "Risk",
+    weight: 12.5,
     description:
-      "Sentiment in agent responses; tone preservation; recommendation language.",
+      "Are agents blocked, slowed, or confused — or is the experience fast and reliable end-to-end?",
   },
 ];
 
@@ -93,7 +91,6 @@ export type Band = {
   color: string;
 };
 
-// Mirrors agentready/api/scoring/bands.py — the canonical 0–100 ACX scale.
 export const SCORE_MAX = 100;
 
 export const BANDS: Band[] = [

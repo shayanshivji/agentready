@@ -42,6 +42,7 @@ export type SubCriterionEvent = {
   label: string;
   score: number;
   notes?: string | null;
+  evidence?: string[];
 };
 
 export type DimensionScoredEvent = {

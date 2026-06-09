@@ -73,11 +73,17 @@ export function LiveScanView({
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div className="flex flex-col gap-1">
             <p className="chip w-fit">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
-              </span>
-              ACX scan · {brandSlug}
+              {staticMode ? (
+                <>ACX replay · {brandSlug}</>
+              ) : (
+                <>
+                  <span className="relative flex h-1.5 w-1.5">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
+                  </span>
+                  ACX scan · {brandSlug}
+                </>
+              )}
             </p>
             <h1 className="font-display text-4xl font-bold tracking-tight text-[var(--ink)]">
               {brandName}
@@ -107,7 +113,7 @@ export function LiveScanView({
         </div>
       </header>
 
-      <ScoreBoard state={state} />
+      <ScoreBoard state={state} staticMode={staticMode} />
 
       {isThinResult ? (
         <div className="flex gap-3 rounded-2xl border border-amber-300 bg-amber-50 p-5 text-sm text-amber-900 shadow-sm dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-200">
@@ -235,6 +241,7 @@ export function LiveScanView({
       </section>
 
       <EvidenceDrawer
+        brandSlug={brandSlug}
         dimensionCode={selectedDim}
         dimensions={state.dimensions}
         journeys={state.journeys}

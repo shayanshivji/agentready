@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "94b1a71a-0c05-4ee6-8ad4-161da8ac0b53",
+    "id": "ce446376-c355-4804-b215-cab673c09cf4",
     "brand": {
       "id": "5c124814-171d-4a3e-aac6-bb888ecc9d4a",
       "slug": "pandora",
@@ -9,8 +9,8 @@
     "url": "https://www.pandora.net",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:52.716522",
-    "completed_at": "2026-06-04T02:12:52.969971",
+    "started_at": "2026-06-09T00:41:56.782276",
+    "completed_at": "2026-06-09T00:41:56.993964",
     "total_score": 9.83,
     "band": "Agent-Blind",
     "dimensions": [
@@ -400,7 +400,7 @@
       "canonical_url": "pandora.net",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "pandora_L1_chatgpt_2026-05-27.png",
+      "evidence_path": "/evidence/pandora/pandora_L1_chatgpt_2026-05-27.png",
       "transcript_preview": "ChatGPT cited Pandora canonically via Google Merchant feed; us.pandora.net direct fetch returned 403 but shopping-feed retrieval succeeded."
     },
     {
@@ -413,7 +413,7 @@
       "canonical_url": "pandora.net",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "pandora_L1_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/pandora/pandora_L1_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude cited Pandora ME collection canonically. Defer-to-user pattern when blocked at PDP \u2014 brand-defense via transparency."
     }
   ],

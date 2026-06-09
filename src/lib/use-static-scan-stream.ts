@@ -62,6 +62,7 @@ function buildTimeline(payload: StaticScanPayload): { events: Timed[]; total: nu
           label: s.label,
           score: s.score,
           notes: s.notes,
+          evidence: (s.evidence ?? []) as string[],
         })),
         ts: ts(),
       },

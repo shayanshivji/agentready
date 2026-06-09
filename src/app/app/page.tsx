@@ -76,7 +76,9 @@ export default function AppConsole() {
             </div>
             <p className="mt-3 flex items-center gap-1.5 text-xs text-[var(--ink-faint)]">
               <Activity className="h-3.5 w-3.5 text-[var(--accent-3)]" />
-              Streams the diagnostic live: probes → agent panel → scoring → board report.
+              {STATIC_MODE
+                ? "Replays recorded probe + panel evidence from disk"
+                : "Streams the diagnostic live: probes → agent panel → scoring → board report."}
             </p>
           </div>
         </header>
@@ -88,7 +90,7 @@ export default function AppConsole() {
               How to read this demo
             </p>
             <p className="mt-2 font-display text-2xl font-semibold leading-snug text-[var(--ink)]">
-              Seven leading brands, scored live. The best clears{" "}
+              Eight benchmark brands, scored from recorded evidence. The best clears{" "}
               <span className="text-gradient">35 / 100</span>. None reaches 40.
             </p>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--ink-soft)]">
@@ -106,8 +108,8 @@ export default function AppConsole() {
             </h2>
             <p className="text-sm text-[var(--ink-faint)]">
               {STATIC_MODE
-                ? "Seven brands · recorded ACX evidence"
-                : "Six brands · manual ACX v1.2 receipts"}
+                ? "Eight brands · recorded ACX evidence"
+                : "Benchmark brands · manual ACX v1.2 receipts"}
             </p>
           </div>
 

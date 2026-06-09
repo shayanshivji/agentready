@@ -44,9 +44,9 @@ const STEPS = [
 ];
 
 const STATS = [
-  { value: "7", label: "Brands scored" },
+  { value: "8", label: "Brands scored" },
   { value: "35", label: "Best score / 100" },
-  { value: "0", label: "Clear 40" },
+  { value: "0", label: "Reach Agent-Aware (40+)" },
   { value: "8", label: "ACX dimensions" },
 ];
 
@@ -154,7 +154,7 @@ export default function LandingPage() {
         <section className="mx-auto w-full max-w-6xl px-6 py-16">
           <div className="holo-border scanline flex flex-col items-center gap-5 overflow-hidden px-6 py-14 text-center">
             <h2 className="max-w-2xl font-display text-3xl font-bold leading-tight tracking-tight text-[var(--ink)] sm:text-4xl">
-              Seven leading brands. The best clears{" "}
+              Eight benchmark brands. The best clears{" "}
               <span className="text-gradient">35 / 100</span>. None reaches 40.
             </h2>
             <p className="max-w-xl text-[var(--ink-soft)]">
@@ -172,17 +172,7 @@ export default function LandingPage() {
         </section>
 
         <footer className="mx-auto w-full max-w-6xl border-t border-[var(--border)] px-6 py-6 text-xs text-[var(--ink-faint)]">
-          <div className="flex flex-wrap items-center gap-4">
-            <span>AgentReady · v0.4.0 · McKinsey 2026 Innovation Olympics</span>
-            <a
-              href="https://github.com/anthropics/anthropic"
-              className="underline transition hover:text-[var(--accent)]"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Submission
-            </a>
-          </div>
+          AgentReady · v0.4.0 · McKinsey 2026 Innovation Olympics · CONFIDENTIAL
         </footer>
       </main>
     </div>

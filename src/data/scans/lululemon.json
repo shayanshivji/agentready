@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "eab283ea-e64f-4a0b-876f-29a871599a02",
+    "id": "f152784a-6a6a-40d4-aaf6-b87b7a203da7",
     "brand": {
       "id": "010eb781-30e5-4241-910c-e315d2778fd2",
       "slug": "lululemon",
@@ -9,8 +9,8 @@
     "url": "https://www.lululemon.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:49.867140",
-    "completed_at": "2026-06-04T02:12:50.401695",
+    "started_at": "2026-06-09T00:41:53.545669",
+    "completed_at": "2026-06-09T00:41:53.620952",
     "total_score": 11.0,
     "band": "Agent-Blind",
     "dimensions": [
@@ -394,7 +394,7 @@
       "canonical_url": "lululemon.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "lululemon_L1_chatgpt_2026-05-28.png",
+      "evidence_path": "/evidence/lululemon/lululemon_L1_chatgpt_2026-05-28.png",
       "transcript_preview": "ChatGPT cited Lululemon Align as canonical via Bing Shopping; direct lululemon.com fetch failed with 12s tarpit but feed retrieval succeeded."
     },
     {
@@ -407,7 +407,7 @@
       "canonical_url": "lululemon.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "lululemon_L1_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/lululemon/lululemon_L1_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude defer-to-user response: cited Lulu and asked to confirm before transacting (brand-defense mechanism)."
     },
     {
@@ -420,7 +420,7 @@
       "canonical_url": "lululemon.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "lululemon_L1_perplexity_2026-05-28.png",
+      "evidence_path": "/evidence/lululemon/lululemon_L1_perplexity_2026-05-28.png",
       "transcript_preview": "Perplexity cited Lulu Align gift card and the Everywhere Belt Bag."
     },
     {
@@ -433,7 +433,7 @@
       "canonical_url": "lululemon.com",
       "sentiment": "neutral",
       "dropoff_reason": "waf_tarpit",
-      "evidence_path": "lululemon_L2_chatgpt_2026-05-28.png",
+      "evidence_path": "/evidence/lululemon/lululemon_L2_chatgpt_2026-05-28.png",
       "transcript_preview": "ChatGPT could not reach lululemon.com cart endpoint \u2014 12s tarpit broke the transactional handshake."
     },
     {
@@ -446,7 +446,7 @@
       "canonical_url": null,
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "lululemon_L3_chatgpt_2026-05-28.png",
+      "evidence_path": "/evidence/lululemon/lululemon_L3_chatgpt_2026-05-28.png",
       "transcript_preview": "ChatGPT refused mandate setup (no UCP profile; brand has no Instant Checkout activation)."
     }
   ],

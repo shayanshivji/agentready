@@ -92,10 +92,16 @@ export const initialState = (scanId: string): ScanStreamState => ({
 // ---------------------------------------------------------------------------
 // Reducer
 // ---------------------------------------------------------------------------
-export type Action = { type: "event"; event: ScanEvent } | { type: "reset"; scanId: string };
+export type Action =
+  | { type: "event"; event: ScanEvent }
+  | { type: "reset"; scanId: string }
+  | { type: "connection_failed"; error: string };
 
 export function reducer(state: ScanStreamState, action: Action): ScanStreamState {
   if (action.type === "reset") return initialState(action.scanId);
+  if (action.type === "connection_failed") {
+    return applyConnectionFailed(state, action.error);
+  }
 
   const event = action.event;
   const events = [...state.events, event];
@@ -187,6 +193,11 @@ export function reducer(state: ScanStreamState, action: Action): ScanStreamState
   }
 }
 
+function applyConnectionFailed(state: ScanStreamState, error: string): ScanStreamState {
+  if (state.status === "completed" || state.status === "failed") return state;
+  return { ...state, status: "failed", error };
+}
+
 // ---------------------------------------------------------------------------
 // Hook
 // ---------------------------------------------------------------------------
@@ -195,6 +206,8 @@ function wsUrlFor(scanId: string): string {
   const wsBase = httpBase.replace(/^http/, "ws");
   return `${wsBase}/api/scans/${scanId}/events`;
 }
+
+const CONNECT_TIMEOUT_MS = 20_000;
 
 export function useScanStream(scanId: string | null): ScanStreamState | null {
   const [state, dispatch] = useReducer(
@@ -209,12 +222,26 @@ export function useScanStream(scanId: string | null): ScanStreamState | null {
 
     const ws = new WebSocket(wsUrlFor(scanId));
     wsRef.current = ws;
+    let terminal = false;
+
+    const timeout = setTimeout(() => {
+      if (ws.readyState !== WebSocket.OPEN) {
+        dispatch({
+          type: "connection_failed",
+          error: "Could not connect to scan stream — is the API running on port 8000?",
+        });
+        ws.close();
+      }
+    }, CONNECT_TIMEOUT_MS);
+
+    ws.onopen = () => clearTimeout(timeout);
 
     ws.onmessage = (msg) => {
       try {
         const event = JSON.parse(msg.data) as ScanEvent;
         dispatch({ type: "event", event });
         if (TERMINAL_EVENT_TYPES.has(event.type)) {
+          terminal = true;
           ws.close();
         }
       } catch (err) {
@@ -222,11 +249,25 @@ export function useScanStream(scanId: string | null): ScanStreamState | null {
       }
     };
 
-    ws.onerror = (err) => {
-      console.warn("scan-stream WebSocket error", err);
+    ws.onerror = () => {
+      dispatch({
+        type: "connection_failed",
+        error: "WebSocket connection failed — check the backend and try Reconnect.",
+      });
+    };
+
+    ws.onclose = (ev) => {
+      clearTimeout(timeout);
+      if (!ev.wasClean && !terminal) {
+        dispatch({
+          type: "connection_failed",
+          error: "Scan stream closed unexpectedly — try Reconnect.",
+        });
+      }
     };
 
     return () => {
+      clearTimeout(timeout);
       if (ws.readyState === WebSocket.OPEN || ws.readyState === WebSocket.CONNECTING) {
         ws.close();
       }

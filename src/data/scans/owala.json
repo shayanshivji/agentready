@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "e90ef57e-c3e1-421b-b9b7-ad97bdd88bb2",
+    "id": "a3dc0a78-9e6d-44d1-add4-962824c2ca3d",
     "brand": {
       "id": "53523844-74a4-4c0a-9a58-03e60103f459",
       "slug": "owala",
@@ -9,8 +9,8 @@
     "url": "https://www.owala.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:41.664227",
-    "completed_at": "2026-06-04T02:12:43.786049",
+    "started_at": "2026-06-09T00:41:47.534168",
+    "completed_at": "2026-06-09T00:41:47.612475",
     "total_score": 20.33,
     "band": "Agent-Exposed",
     "dimensions": [
@@ -406,7 +406,7 @@
       "canonical_url": "target.com",
       "sentiment": "neutral",
       "dropoff_reason": "retailer_demoted_brand_canonical",
-      "evidence_path": "owala_L1_chatgpt_2026-05-27.png",
+      "evidence_path": "/evidence/owala/owala_L1_chatgpt_2026-05-27.png",
       "transcript_preview": "ChatGPT cited Target $24.99, Amazon $26, eBay $19; zero owala.com citation in either sub-cell. Brand-adjacent content residue (owalalife.com) appeared as pricing authority."
     },
     {
@@ -419,7 +419,7 @@
       "canonical_url": "amazon.com",
       "sentiment": "neutral",
       "dropoff_reason": "retailer_demoted_brand_canonical",
-      "evidence_path": "owala_L1_chatgpt_2026-05-27_subcell2.png",
+      "evidence_path": "/evidence/owala/owala_L1_chatgpt_2026-05-27_subcell2.png",
       "transcript_preview": "Repeated prompt \u2014 same retailer-fragmentation pattern; brand canonical absent. Two sub-cells, zero brand-canonical."
     },
     {
@@ -432,7 +432,7 @@
       "canonical_url": "walmart.com",
       "sentiment": "neutral",
       "dropoff_reason": "retailer_demoted_brand_canonical",
-      "evidence_path": "owala_L1_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/owala/owala_L1_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude listed Walmart FIRST as price-authority; owala.com demoted to row 2. Weakest brand-canonical posture in Claude L1 panel. Closing line: 'check Walmart or Owala links directly.'"
     },
     {
@@ -445,7 +445,7 @@
       "canonical_url": "owala.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "owala_L2_oai_2026-05-28.png",
+      "evidence_path": "/evidence/owala/owala_L2_oai_2026-05-28.png",
       "transcript_preview": "OAI-SearchBot ranked Owala highly on leak-proof seal."
     },
     {
@@ -458,7 +458,7 @@
       "canonical_url": "owala.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "owala_L2_chatgpt_2026-05-28.png",
+      "evidence_path": "/evidence/owala/owala_L2_chatgpt_2026-05-28.png",
       "transcript_preview": "ChatGPT ranked Owala #1 of 4 \u2014 'best balance of convenience + portability.' Owala wins ChatGPT."
     },
     {
@@ -471,7 +471,7 @@
       "canonical_url": "owala.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "owala_L2_perplexity_2026-05-28.png",
+      "evidence_path": "/evidence/owala/owala_L2_perplexity_2026-05-28.png",
       "transcript_preview": "Perplexity ranked Owala #1 over Stanley and Yeti on functional criteria."
     },
     {
@@ -484,7 +484,7 @@
       "canonical_url": "stanley1913.com",
       "sentiment": "neutral",
       "dropoff_reason": "lost_to_comparator",
-      "evidence_path": "owala_L2_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/owala/owala_L2_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude ranked Owala #3 of 4 \u2014 labeled 'Best lid design' but not Top pick. Stanley won this cell. Owala's L1 fragmentation translates into L2 demotion."
     }
   ],

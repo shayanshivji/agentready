@@ -20,7 +20,7 @@ export function UrlForm() {
       if (slug) {
         router.push(`/scans/${slug}`);
       } else {
-        setError("Demo mode: pick one of the seven seeded brands below.");
+        setError("Demo mode: pick one of the eight seeded brands below.");
         setSubmitting(false);
       }
       return;

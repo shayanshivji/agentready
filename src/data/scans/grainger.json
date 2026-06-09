@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "0b6a5430-a57e-4aed-ad7a-674ff723c878",
+    "id": "93935b61-afcf-44f4-9192-82e422880ace",
     "brand": {
       "id": "9b7a8c2a-7074-43e1-900c-8df7c295d5f9",
       "slug": "grainger",
@@ -9,9 +9,9 @@
     "url": "https://www.grainger.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:57.656154",
-    "completed_at": "2026-06-04T02:12:57.706037",
-    "total_score": 6.67,
+    "started_at": "2026-06-09T00:42:03.074464",
+    "completed_at": "2026-06-09T00:42:03.128549",
+    "total_score": 8.08,
     "band": "Agent-Blind",
     "dimensions": [
       {
@@ -63,9 +63,9 @@
         "code": "D2",
         "name": "Agent Discoverability (AEO)",
         "weight": 1.0,
-        "raw_subtotal": 6.67,
+        "raw_subtotal": 7.08,
         "max_subtotal": 12.5,
-        "weighted_score": 6.67,
+        "weighted_score": 7.08,
         "sub_criteria": [
           {
             "code": "2a",
@@ -105,7 +105,7 @@
           {
             "code": "2f",
             "label": "Content ecosystem coverage",
-            "score": 1.0,
+            "score": 1.5,
             "evidence": [],
             "notes": "No PDP; ecosystem floored from agent-panel evidence"
           }
@@ -115,9 +115,9 @@
         "code": "D3",
         "name": "Transactional API Readiness",
         "weight": 1.4,
-        "raw_subtotal": 0.0,
+        "raw_subtotal": 1.0,
         "max_subtotal": 12.5,
-        "weighted_score": 0.0,
+        "weighted_score": 1.4,
         "sub_criteria": [
           {
             "code": "3a",
@@ -143,9 +143,9 @@
           {
             "code": "3d",
             "label": "ACP (Agentic Commerce Protocol)",
-            "score": 0.0,
+            "score": 1.0,
             "evidence": [],
-            "notes": "Capability-vs-activation gap; no agent-panel evidence yet"
+            "notes": "L3 transactional screenshot on file (Sprint 3 validates)"
           },
           {
             "code": "3e",
@@ -394,7 +394,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "login_wall",
-      "evidence_path": "grainger_L1_chatgpt_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L1_chatgpt_2026-06-03.png",
       "transcript_preview": "ChatGPT confirmed Grainger carries the fastener family but cannot pull live price or branch stock \u2014 pricing gated behind logged-in contract accounts. Offered McMaster-Carr and Fastenal as cross-reference alternatives."
     },
     {
@@ -407,7 +407,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "login_wall",
-      "evidence_path": "grainger_L1_perplexity_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L1_perplexity_2026-06-03.png",
       "transcript_preview": "Perplexity searched the web but could not retrieve live pricing \u2014 Grainger product pages require login for contract/negotiated pricing and real-time inventory is not public. Directed user to grainger.com or 1-800-GRAINGER."
     },
     {
@@ -420,7 +420,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "login_wall",
-      "evidence_path": "grainger_L1_claude_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L1_claude_2026-06-03.png",
       "transcript_preview": "Claude could not access live inventory or pricing \u2014 Grainger pages require authentication. Provided comparable item 63NG40 (~$1.20) and general price range ($0.30\u2013$2.00) but no authoritative quote for 1A123."
     },
     {
@@ -433,7 +433,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "login_wall",
-      "evidence_path": "grainger_L1_gemini_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L1_gemini_2026-06-03.png",
       "transcript_preview": "Gemini has no real-time access to Grainger inventory or corporate pricing databases. Directed user to log into grainger.com or contact a Grainger representative for branch stock."
     },
     {
@@ -446,7 +446,7 @@
       "canonical_url": "mcmaster.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "grainger_L2_chatgpt_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L2_chatgpt_2026-06-03.png",
       "transcript_preview": "ChatGPT ranked McMaster-Carr #1 for reliability and next-day shipping; Grainger mentioned in bulk/VMI context but demoted behind McMaster for emergency replenishment. Wholesale specialists listed for cost savings."
     },
     {
@@ -459,7 +459,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "grainger_L2_perplexity_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L2_perplexity_2026-06-03.png",
       "transcript_preview": "Perplexity cited Grainger alongside Fastenal and McMaster-Carr as top industrial distributors with next-day delivery and account-based contract pricing. Also listed MonsterBolts and WholesaleBolts for bulk specialists."
     },
     {
@@ -472,7 +472,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "grainger_L2_claude_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L2_claude_2026-06-03.png",
       "transcript_preview": "Claude recommended Grainger and MSC Industrial for existing commercial accounts with volume pricing; McMaster-Carr for speed, Fastenal for VMI programs. Included counterfeit-detection tips (6 radial lines on Grade-8 heads)."
     },
     {
@@ -485,7 +485,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "grainger_L2_gemini_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L2_gemini_2026-06-03.png",
       "transcript_preview": "Gemini listed Grainger with account pricing alongside Fastenal (VMI), MSC, and W\u00fcrth. Recommended Fastenal as practical first call for most maintenance shops; Grainger cited for net-30 commercial accounts."
     },
     {
@@ -498,7 +498,7 @@
       "canonical_url": null,
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_mandate_chatgpt_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_mandate_chatgpt_2026-06-03.png",
       "transcript_preview": "ChatGPT did not execute a mandate \u2014 it only rephrased the authorization request into standard and formal memo language. No AP2, no Grainger account integration, no standing-order surface."
     },
     {
@@ -511,7 +511,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_mandate_perplexity_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_mandate_perplexity_2026-06-03.png",
       "transcript_preview": "Perplexity mapped the procurement workflow (blanket PO, Grainger order management, auto-reorder) but cannot submit authorization \u2014 must route through internal SAP Ariba or Coupa. Provided Grainger ePro customer care contact."
     },
     {
@@ -524,7 +524,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_mandate_gemini_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_mandate_gemini_2026-06-03.png",
       "transcript_preview": "Gemini falsely claimed authorization ('I have authorized the automatic reorder') but immediately asked for item categories \u2014 no actual mandate was established with Grainger's systems. Hallucinated success without execution."
     },
     {
@@ -537,7 +537,7 @@
       "canonical_url": null,
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_mandate_claude_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_mandate_claude_2026-06-03.png",
       "transcript_preview": "Claude refused to authorize purchasing \u2014 no access to procurement, ERP, or approval workflows. Offered to draft an approval memo or blanket PO template instead."
     },
     {
@@ -550,7 +550,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_buy_chatgpt_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_buy_chatgpt_2026-06-03.png",
       "transcript_preview": "ChatGPT refused to place the order. Mis-resolved item 1A123 as a Jackson Safety barricade light (wrong SKU class) but offered to check pricing/availability if user confirms. No checkout path executed."
     },
     {
@@ -563,7 +563,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_buy_perplexity_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_buy_perplexity_2026-06-03.png",
       "transcript_preview": "Perplexity cannot make purchases \u2014 no ability to access websites, log into accounts, or conduct financial transactions. Directed user to grainger.com, 1-800-GRAINGER, or a Houston branch."
     },
     {
@@ -576,7 +576,7 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_buy_gemini_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_buy_gemini_2026-06-03.png",
       "transcript_preview": "Gemini cannot execute financial transactions. Directed user to grainger.com to search part 1A123 and offered help comparing alternatives."
     },
     {
@@ -589,9 +589,9 @@
       "canonical_url": "grainger.com",
       "sentiment": "neutral",
       "dropoff_reason": "mandate_refused",
-      "evidence_path": "grainger_L3_buy_claude_2026-06-03.png",
+      "evidence_path": "/evidence/grainger/grainger_L3_buy_claude_2026-06-03.png",
       "transcript_preview": "Claude cannot make purchases \u2014 no access to external websites, account login, or payment processing. Directed user to grainger.com to search part 1A123."
     }
   ],
-  "receipts_count": 2
+  "receipts_count": 16
 }

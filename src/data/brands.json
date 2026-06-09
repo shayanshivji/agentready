@@ -11,9 +11,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "c73e5cdd-6cad-4c15-b9ad-68cda75c217f",
-      "started_at": "2026-06-04T02:12:30.835712",
-      "completed_at": "2026-06-04T02:12:32.278355",
+      "id": "94661d93-67a6-441b-8910-561d0d7096a5",
+      "started_at": "2026-06-09T00:41:39.327902",
+      "completed_at": "2026-06-09T00:41:39.526164",
       "status": "completed",
       "total_score": 34.67,
       "band": "Agent-Exposed"
@@ -31,9 +31,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "d7c27a9b-c127-4f58-a4a3-f4f73a01d589",
-      "started_at": "2026-06-04T02:12:37.663335",
-      "completed_at": "2026-06-04T02:12:39.404664",
+      "id": "8d312cb7-673c-450e-b16a-c1775ccf6266",
+      "started_at": "2026-06-09T00:41:44.577879",
+      "completed_at": "2026-06-09T00:41:44.668405",
       "status": "completed",
       "total_score": 14.83,
       "band": "Agent-Blind"
@@ -51,9 +51,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "e90ef57e-c3e1-421b-b9b7-ad97bdd88bb2",
-      "started_at": "2026-06-04T02:12:41.664227",
-      "completed_at": "2026-06-04T02:12:43.786049",
+      "id": "a3dc0a78-9e6d-44d1-add4-962824c2ca3d",
+      "started_at": "2026-06-09T00:41:47.534168",
+      "completed_at": "2026-06-09T00:41:47.612475",
       "status": "completed",
       "total_score": 20.33,
       "band": "Agent-Exposed"
@@ -71,9 +71,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "5de379db-58c5-408c-8e62-412ca39c78e4",
-      "started_at": "2026-06-04T02:12:46.085726",
-      "completed_at": "2026-06-04T02:12:47.614119",
+      "id": "a090f939-aa5e-4341-bffb-60f52c391ede",
+      "started_at": "2026-06-09T00:41:50.651654",
+      "completed_at": "2026-06-09T00:41:50.776309",
       "status": "completed",
       "total_score": 33.0,
       "band": "Agent-Exposed"
@@ -91,9 +91,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "eab283ea-e64f-4a0b-876f-29a871599a02",
-      "started_at": "2026-06-04T02:12:49.867140",
-      "completed_at": "2026-06-04T02:12:50.401695",
+      "id": "f152784a-6a6a-40d4-aaf6-b87b7a203da7",
+      "started_at": "2026-06-09T00:41:53.545669",
+      "completed_at": "2026-06-09T00:41:53.620952",
       "status": "completed",
       "total_score": 11.0,
       "band": "Agent-Blind"
@@ -111,9 +111,9 @@
       75.0
     ],
     "latest_scan": {
-      "id": "94b1a71a-0c05-4ee6-8ad4-161da8ac0b53",
-      "started_at": "2026-06-04T02:12:52.716522",
-      "completed_at": "2026-06-04T02:12:52.969971",
+      "id": "ce446376-c355-4804-b215-cab673c09cf4",
+      "started_at": "2026-06-09T00:41:56.782276",
+      "completed_at": "2026-06-09T00:41:56.993964",
       "status": "completed",
       "total_score": 9.83,
       "band": "Agent-Blind"
@@ -131,9 +131,9 @@
       80.0
     ],
     "latest_scan": {
-      "id": "41134f01-a9e6-4abd-b0e9-a2a8a483fc2a",
-      "started_at": "2026-06-04T02:12:55.253610",
-      "completed_at": "2026-06-04T02:12:55.398543",
+      "id": "6f1a790f-c7e2-4783-ad5c-9245242b13f2",
+      "started_at": "2026-06-09T00:41:59.738417",
+      "completed_at": "2026-06-09T00:41:59.796919",
       "status": "completed",
       "total_score": 22.17,
       "band": "Agent-Exposed"
@@ -151,11 +151,11 @@
       80.0
     ],
     "latest_scan": {
-      "id": "0b6a5430-a57e-4aed-ad7a-674ff723c878",
-      "started_at": "2026-06-04T02:12:57.656154",
-      "completed_at": "2026-06-04T02:12:57.706037",
+      "id": "93935b61-afcf-44f4-9192-82e422880ace",
+      "started_at": "2026-06-09T00:42:03.074464",
+      "completed_at": "2026-06-09T00:42:03.128549",
       "status": "completed",
-      "total_score": 6.67,
+      "total_score": 8.08,
       "band": "Agent-Blind"
     }
   }

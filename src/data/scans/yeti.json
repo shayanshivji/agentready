@@ -1,6 +1,6 @@
 {
   "scan": {
-    "id": "d7c27a9b-c127-4f58-a4a3-f4f73a01d589",
+    "id": "8d312cb7-673c-450e-b16a-c1775ccf6266",
     "brand": {
       "id": "c8bac468-ed41-465d-a0cc-dff08b749bd2",
       "slug": "yeti",
@@ -9,8 +9,8 @@
     "url": "https://www.yeti.com",
     "mode": "receipts",
     "status": "completed",
-    "started_at": "2026-06-04T02:12:37.663335",
-    "completed_at": "2026-06-04T02:12:39.404664",
+    "started_at": "2026-06-09T00:41:44.577879",
+    "completed_at": "2026-06-09T00:41:44.668405",
     "total_score": 14.83,
     "band": "Agent-Blind",
     "dimensions": [
@@ -398,7 +398,7 @@
       "canonical_url": "amazon.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "yeti_L1_chatgpt_2026-05-27.png",
+      "evidence_path": "/evidence/yeti/yeti_L1_chatgpt_2026-05-27.png",
       "transcript_preview": "Yeti cited via Amazon listing \u2014 direct yeti.com fetch failed (PerimeterX 403 even to GPTBot UA)."
     },
     {
@@ -411,7 +411,7 @@
       "canonical_url": "yeti.com",
       "sentiment": "positive",
       "dropoff_reason": null,
-      "evidence_path": "yeti_L1_claude_sonnet_4-6_2026-05-28.png",
+      "evidence_path": "/evidence/yeti/yeti_L1_claude_sonnet_4-6_2026-05-28.png",
       "transcript_preview": "Claude cited Yeti canonically (Bing Shopping feed bypassed WAF). Sentiment positive on durability."
     }
   ],

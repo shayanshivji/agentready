@@ -7,13 +7,13 @@ import { DimensionState, JourneyState } from "@/lib/use-scan-stream";
 import { DIMENSION_BY_CODE } from "@/lib/dimensions";
 
 type Props = {
+  brandSlug: string;
   dimensionCode: string | null;
   dimensions: DimensionState[];
   journeys: JourneyState[];
   onClose: () => void;
 };
 
-// Maps a dimension code to the agent-panel layer(s) most relevant to it.
 const DIMENSION_LAYERS: Record<string, ("L1" | "L2" | "L3")[]> = {
   D1: ["L1"],
   D2: ["L1", "L2"],
@@ -25,7 +25,19 @@ const DIMENSION_LAYERS: Record<string, ("L1" | "L2" | "L3")[]> = {
   D8: ["L1", "L2"],
 };
 
-export function EvidenceDrawer({ dimensionCode, dimensions, journeys, onClose }: Props) {
+function evidenceHref(brandSlug: string, path: string): string {
+  if (path.startsWith("/evidence/")) return path;
+  const name = path.split(/[/\\]/).pop() ?? path;
+  return `/evidence/${brandSlug}/${name}`;
+}
+
+export function EvidenceDrawer({
+  brandSlug,
+  dimensionCode,
+  dimensions,
+  journeys,
+  onClose,
+}: Props) {
   const dim = dimensionCode ? dimensions.find((d) => d.code === dimensionCode) : null;
   const meta = dimensionCode ? DIMENSION_BY_CODE[dimensionCode] : null;
   const relevantLayers = (dimensionCode && DIMENSION_LAYERS[dimensionCode]) || [];
@@ -41,7 +53,7 @@ export function EvidenceDrawer({ dimensionCode, dimensions, journeys, onClose }:
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm"
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
           />
           <motion.aside
             key="drawer"
@@ -72,47 +84,56 @@ export function EvidenceDrawer({ dimensionCode, dimensions, journeys, onClose }:
             </header>
 
             <div className="flex flex-col gap-6 p-6">
-              {/* score summary */}
-              <section className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900/40">
+              <section className="glass-card p-4">
                 {dim ? (
                   <div className="flex items-baseline gap-3">
-                    <span className="text-3xl font-bold tabular-nums text-slate-900 dark:text-slate-100">
+                    <span className="font-display text-3xl font-bold tabular-nums text-[var(--ink)]">
                       {dim.raw.toFixed(1)}
                     </span>
-                    <span className="text-sm text-slate-500">
+                    <span className="text-sm text-[var(--ink-faint)]">
                       / {dim.max.toFixed(0)} raw · weighted {dim.weighted.toFixed(2)}
                     </span>
                   </div>
                 ) : (
-                  <p className="text-sm text-slate-500">Scoring not yet emitted for this dimension.</p>
+                  <p className="text-sm text-[var(--ink-faint)]">
+                    Scoring not yet emitted for this dimension.
+                  </p>
                 )}
               </section>
 
-              {/* sub-criteria */}
               {dim ? (
                 <section>
-                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ink-faint)]">
                     Sub-criteria
                   </h3>
                   <ul className="flex flex-col gap-2">
                     {dim.subCriteria.map((sc) => (
                       <li
                         key={sc.code}
-                        className="rounded-lg border border-slate-200 bg-white p-3 dark:border-slate-800 dark:bg-slate-900/40"
+                        className="glass-card border border-[var(--border)] p-3"
                       >
-                        <div className="flex items-baseline justify-between">
-                          <span className="text-sm font-semibold text-slate-900 dark:text-slate-100">
-                            <span className="font-mono text-xs text-slate-500">{sc.code}</span>{" "}
+                        <div className="flex items-baseline justify-between gap-2">
+                          <span className="text-sm font-semibold text-[var(--ink)]">
+                            <span className="font-mono text-xs text-[var(--accent)]">{sc.code}</span>{" "}
                             {sc.label}
                           </span>
-                          <span className="font-mono text-sm font-semibold text-slate-900 dark:text-slate-100">
+                          <span className="font-mono text-sm font-semibold text-[var(--ink)]">
                             {sc.score.toFixed(2)}
                           </span>
                         </div>
                         {sc.notes ? (
-                          <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                          <p className="mt-1 text-xs leading-relaxed text-[var(--ink-soft)]">
                             {sc.notes}
                           </p>
+                        ) : null}
+                        {sc.evidence && sc.evidence.length > 0 ? (
+                          <ul className="mt-2 space-y-1 font-mono text-[10px] text-[var(--accent)]">
+                            {sc.evidence.map((ref) => (
+                              <li key={ref} className="truncate">
+                                ↳ {ref}
+                              </li>
+                            ))}
+                          </ul>
                         ) : null}
                       </li>
                     ))}
@@ -120,55 +141,64 @@ export function EvidenceDrawer({ dimensionCode, dimensions, journeys, onClose }:
                 </section>
               ) : null}
 
-              {/* journey evidence */}
               {relevantLayers.length > 0 ? (
                 <section>
-                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                  <h3 className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ink-faint)]">
                     Agent-panel evidence ({relevantLayers.join(", ")})
                   </h3>
                   {relevantJourneys.length === 0 ? (
-                    <p className="rounded-lg border border-dashed border-slate-300 bg-slate-50 p-4 text-xs text-slate-500 dark:border-slate-700 dark:bg-slate-900/40">
+                    <p className="rounded-lg border border-dashed border-[var(--border)] p-4 text-xs text-[var(--ink-faint)]">
                       No journeys observed yet for this dimension&apos;s layers.
                     </p>
                   ) : (
-                    <ul className="flex flex-col gap-2">
-                      {relevantJourneys.map((j, i) => (
-                        <li
-                          key={`${j.agent}-${j.intent_id}-${j.layer}-${i}`}
-                          className="rounded-lg border border-slate-200 bg-white p-3 text-xs dark:border-slate-800 dark:bg-slate-900/40"
-                        >
-                          <div className="flex flex-wrap items-center justify-between gap-2">
-                            <span className="font-mono text-[11px] text-slate-500">
-                              {j.agent} · {j.layer} · intent {j.intent_id}
-                            </span>
-                            <span
-                              className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
-                                j.success
-                                  ? "bg-emerald-500/15 text-emerald-300"
-                                  : "bg-rose-500/15 text-rose-300"
-                              }`}
-                            >
-                              {j.success ? "ok" : "fail"}
-                            </span>
-                          </div>
-                          <p className="mt-1 text-[12px] text-slate-700 dark:text-slate-300">
-                            {j.intent_label}
-                          </p>
-                          {j.canonical_url ? (
-                            <p className="mt-1 truncate font-mono text-[10px] text-slate-500">
-                              {j.canonical_url}
+                    <ul className="flex flex-col gap-3">
+                      {relevantJourneys.map((j, i) => {
+                        const imgSrc =
+                          j.evidence_path ? evidenceHref(brandSlug, j.evidence_path) : null;
+                        return (
+                          <li
+                            key={`${j.agent}-${j.intent_id}-${j.layer}-${i}`}
+                            className="glass-card border border-[var(--border)] p-3 text-xs"
+                          >
+                            <div className="flex flex-wrap items-center justify-between gap-2">
+                              <span className="font-mono text-[11px] text-[var(--ink-faint)]">
+                                {j.agent} · {j.layer} · intent {j.intent_id}
+                              </span>
+                              <span
+                                className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                                  j.success
+                                    ? "bg-emerald-500/15 text-emerald-300"
+                                    : "bg-rose-500/15 text-rose-300"
+                                }`}
+                              >
+                                {j.success ? "ok" : "fail"}
+                              </span>
+                            </div>
+                            <p className="mt-1 text-[12px] text-[var(--ink)]">{j.intent_label}</p>
+                            {imgSrc ? (
+                              <div className="mt-2 overflow-hidden rounded-lg border border-[var(--border)]">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                  src={imgSrc}
+                                  alt={`${j.agent} ${j.layer} evidence`}
+                                  className="max-h-48 w-full object-cover object-top"
+                                />
+                                <p className="truncate px-2 py-1 font-mono text-[10px] text-[var(--ink-faint)]">
+                                  {imgSrc}
+                                </p>
+                              </div>
+                            ) : null}
+                            {j.dropoff_reason ? (
+                              <p className="mt-1 text-[11px] text-amber-300">
+                                dropoff: {j.dropoff_reason}
+                              </p>
+                            ) : null}
+                            <p className="mt-1 line-clamp-3 text-[11px] text-[var(--ink-soft)]">
+                              {j.transcript_preview}
                             </p>
-                          ) : null}
-                          {j.dropoff_reason ? (
-                            <p className="mt-1 text-[11px] text-amber-700">
-                              dropoff: {j.dropoff_reason}
-                            </p>
-                          ) : null}
-                          <p className="mt-1 line-clamp-2 text-[11px] text-slate-600 dark:text-slate-400">
-                            {j.transcript_preview}
-                          </p>
-                        </li>
-                      ))}
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
                 </section>

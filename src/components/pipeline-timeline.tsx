@@ -82,8 +82,10 @@ function NodeMeta({ node }: { node: PipelineNodeState }) {
   if (Array.isArray(m.agents) && m.agents.length > 0) {
     lines.push(`agents: ${(m.agents as string[]).join(", ")}`);
   }
-  if (typeof m.total_normalized === "number") {
-    lines.push(`ACX total: ${(m.total_normalized as number).toFixed(2)}/50`);
+  if (typeof m.total_raw === "number") {
+    lines.push(`ACX total: ${(m.total_raw as number).toFixed(2)}/100`);
+  } else if (typeof m.total_normalized === "number") {
+    lines.push(`ACX total: ${(m.total_normalized as number).toFixed(2)}/100`);
   }
   if (lines.length === 0) return null;
   return (
