@@ -2,18 +2,25 @@ import { Suspense } from "react";
 import { Activity } from "lucide-react";
 import { api } from "@/lib/api";
 import { STATIC_MODE } from "@/lib/static";
-import { STATIC_BRANDS } from "@/data";
+import {
+  demoStats,
+  inProgressBrands,
+  scoredBrands,
+  sortScoredByRank,
+} from "@/lib/brand-catalog";
 import { UrlForm } from "@/components/url-form";
 import { BrandCard } from "@/components/brand-card";
+import { Acx500Leaderboard } from "@/components/acx500-leaderboard";
 import { SiteNav } from "@/components/site-nav";
 
 export const dynamic = "force-dynamic";
 
-async function BrandGrid() {
+async function ScoredBrandGrid() {
   if (STATIC_MODE) {
+    const brands = sortScoredByRank(scoredBrands());
     return (
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {STATIC_BRANDS.map((b) => (
+        {brands.map((b) => (
           <BrandCard key={b.id} brand={b} />
         ))}
       </div>
@@ -47,7 +54,20 @@ async function BrandGrid() {
   }
 }
 
+function PipelineBrandGrid() {
+  const brands = inProgressBrands();
+  return (
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {brands.map((b) => (
+        <BrandCard key={b.id} brand={b} />
+      ))}
+    </div>
+  );
+}
+
 export default function AppConsole() {
+  const stats = demoStats();
+
   return (
     <div className="flex w-full flex-1 flex-col">
       <SiteNav variant="app" />
@@ -90,26 +110,27 @@ export default function AppConsole() {
               How to read this demo
             </p>
             <p className="mt-2 font-display text-2xl font-semibold leading-snug text-[var(--ink)]">
-              Eight benchmark brands, scored from recorded evidence. The best clears{" "}
-              <span className="text-gradient">35 / 100</span>. None reaches 40.
+              {stats.scoredCount} brands scored · {stats.inProgressCount} in active capture ·
+              best score{" "}
+              <span className="text-gradient">{stats.bestScore} / 100</span>.
             </p>
             <p className="mt-2 max-w-3xl text-sm leading-relaxed text-[var(--ink-soft)]">
-              Those low scores aren&apos;t a bug — they&apos;re the finding. Today&apos;s
-              web is built for humans, not agents. Click any brand to replay its full
-              diagnostic, reproduced from recorded evidence.
+              Low scores are the finding: today&apos;s web is built for humans, not agents.
+              Click any scored brand to replay its full diagnostic. Pipeline entities show
+              where the ACX 500 index is expanding next — no scores until evidence is captured.
             </p>
           </div>
         ) : null}
 
+        <Acx500Leaderboard />
+
         <section className="flex flex-col gap-5">
           <div className="flex items-baseline justify-between border-b border-[var(--border)] pb-3">
             <h2 className="font-display text-xl font-semibold tracking-tight text-[var(--ink)]">
-              Pre-seeded benchmark
+              Scored benchmarks
             </h2>
             <p className="text-sm text-[var(--ink-faint)]">
-              {STATIC_MODE
-                ? "Eight brands · recorded ACX evidence"
-                : "Benchmark brands · manual ACX v1.2 receipts"}
+              {stats.scoredCount} with recorded ACX evidence
             </p>
           </div>
 
@@ -118,9 +139,23 @@ export default function AppConsole() {
               <div className="h-32 animate-pulse rounded-2xl border border-[var(--border)] bg-white/5" />
             }
           >
-            <BrandGrid />
+            <ScoredBrandGrid />
           </Suspense>
         </section>
+
+        {STATIC_MODE && stats.inProgressCount > 0 ? (
+          <section className="flex flex-col gap-5">
+            <div className="flex items-baseline justify-between border-b border-[var(--border)] pb-3">
+              <h2 className="font-display text-xl font-semibold tracking-tight text-[var(--ink)]">
+                Pipeline · evidence capture in progress
+              </h2>
+              <p className="text-sm text-[var(--ink-faint)]">
+                {stats.inProgressCount} entities · new archetypes
+              </p>
+            </div>
+            <PipelineBrandGrid />
+          </section>
+        ) : null}
 
         <footer className="mt-auto border-t border-[var(--border)] pt-6 text-xs text-[var(--ink-faint)]">
           AgentReady · v0.4.0 ·{" "}

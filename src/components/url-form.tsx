@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { api, ApiError } from "@/lib/api";
+import { demoStats } from "@/lib/brand-catalog";
 import { STATIC_MODE, staticBrandByHost } from "@/lib/static";
 
 export function UrlForm() {
@@ -20,7 +21,9 @@ export function UrlForm() {
       if (slug) {
         router.push(`/scans/${slug}`);
       } else {
-        setError("Demo mode: pick one of the eight seeded brands below.");
+        setError(
+          `Demo mode: pick one of the ${demoStats().scoredCount} scored brands below, or a pipeline entity in capture.`,
+        );
         setSubmitting(false);
       }
       return;

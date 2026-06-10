@@ -4,17 +4,23 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Play } from "lucide-react";
 
-import { api, ApiError, type Brand } from "@/lib/api";
+import { api, ApiError, type Brand, type BrandDemoStatus } from "@/lib/api";
 import { STATIC_MODE } from "@/lib/static";
 import { bandByLabel } from "@/lib/dimensions";
 
-export function BrandCard({ brand }: { brand: Brand }) {
+type Props = {
+  brand: Brand & { demo_status?: BrandDemoStatus };
+};
+
+export function BrandCard({ brand }: Props) {
   const router = useRouter();
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const band = bandByLabel(brand.latest_scan?.band ?? null);
+  const inProgress = brand.demo_status === "in_progress";
 
   async function runScan() {
+    if (inProgress) return;
     if (STATIC_MODE) {
       setSubmitting(true);
       router.push(`/scans/${brand.slug}`);
@@ -37,7 +43,11 @@ export function BrandCard({ brand }: { brand: Brand }) {
   const score = brand.latest_scan?.total_score ?? null;
 
   return (
-    <article className="glass-card group flex flex-col gap-4 p-5">
+    <article
+      className={`glass-card group flex flex-col gap-4 p-5 ${
+        inProgress ? "border-dashed opacity-85" : ""
+      }`}
+    >
       <header className="flex items-start justify-between gap-3">
         <div className="flex flex-col gap-1">
           <h3 className="font-display text-lg font-semibold tracking-tight text-[var(--ink)]">
@@ -73,6 +83,10 @@ export function BrandCard({ brand }: { brand: Brand }) {
           >
             {band.label}
           </span>
+        ) : inProgress ? (
+          <span className="rounded-full border border-amber-400/40 bg-amber-400/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-amber-200">
+            In capture
+          </span>
         ) : (
           <span className="text-xs text-[var(--ink-faint)]">
             {brand.latest_scan?.status ?? "not scanned"}
@@ -100,11 +114,17 @@ export function BrandCard({ brand }: { brand: Brand }) {
       <button
         type="button"
         onClick={runScan}
-        disabled={submitting}
-        className="group/btn mt-1 inline-flex items-center justify-center gap-2 rounded-lg border border-[var(--border-strong)] bg-gradient-to-r from-cyan-500/15 to-violet-500/15 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-[var(--ink)] transition hover:from-cyan-500/30 hover:to-violet-500/30 hover:shadow-[0_0_24px_-6px_var(--glow-cyan)] disabled:opacity-60"
+        disabled={submitting || inProgress}
+        className="group/btn mt-1 inline-flex items-center justify-center gap-2 rounded-lg border border-[var(--border-strong)] bg-gradient-to-r from-cyan-500/15 to-violet-500/15 px-3 py-2.5 text-xs font-semibold uppercase tracking-wide text-[var(--ink)] transition hover:from-cyan-500/30 hover:to-violet-500/30 hover:shadow-[0_0_24px_-6px_var(--glow-cyan)] disabled:cursor-not-allowed disabled:opacity-50"
       >
         <Play className="h-3.5 w-3.5 text-[var(--accent)] transition group-hover/btn:translate-x-0.5" />
-        {submitting ? "Starting…" : STATIC_MODE ? "Replay ACX scan" : "Run live ACX scan"}
+        {inProgress
+          ? "Evidence capture in progress"
+          : submitting
+            ? "Starting…"
+            : STATIC_MODE
+              ? "Replay ACX scan"
+              : "Run live ACX scan"}
       </button>
       {error ? <p className="text-[11px] text-rose-400">{error}</p> : null}
     </article>

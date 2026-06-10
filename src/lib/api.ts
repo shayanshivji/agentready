@@ -20,6 +20,8 @@ export type ScanSummary = {
   band: string | null;
 };
 
+export type BrandDemoStatus = "scored" | "in_progress" | "queued";
+
 export type Brand = {
   id: string;
   slug: string;
@@ -29,6 +31,7 @@ export type Brand = {
   target_curve: string;
   target_band: [number, number];
   latest_scan: ScanSummary | null;
+  demo_status?: BrandDemoStatus;
 };
 
 export type SubCriterion = {

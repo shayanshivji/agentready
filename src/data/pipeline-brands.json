@@ -1,0 +1,68 @@
+[
+  {
+    "id": "pipeline-target",
+    "slug": "target",
+    "name": "Target",
+    "domain": "target.com",
+    "archetype": "Retailer",
+    "target_curve": "L3",
+    "target_band": [65.0, 75.0],
+    "latest_scan": null,
+    "demo_status": "in_progress"
+  },
+  {
+    "id": "pipeline-etsy",
+    "slug": "etsy",
+    "name": "Etsy",
+    "domain": "etsy.com",
+    "archetype": "Marketplace",
+    "target_curve": "L4",
+    "target_band": [75.0, 85.0],
+    "latest_scan": null,
+    "demo_status": "in_progress"
+  },
+  {
+    "id": "pipeline-shopify",
+    "slug": "shopify",
+    "name": "Shopify",
+    "domain": "shopify.com",
+    "archetype": "Commerce Platform",
+    "target_curve": "L5",
+    "target_band": [85.0, 95.0],
+    "latest_scan": null,
+    "demo_status": "in_progress"
+  },
+  {
+    "id": "pipeline-fastenal",
+    "slug": "fastenal",
+    "name": "Fastenal",
+    "domain": "fastenal.com",
+    "archetype": "B2B Distributor",
+    "target_curve": "L3",
+    "target_band": [65.0, 80.0],
+    "latest_scan": null,
+    "demo_status": "in_progress"
+  },
+  {
+    "id": "pipeline-ferguson",
+    "slug": "ferguson",
+    "name": "Ferguson",
+    "domain": "ferguson.com",
+    "archetype": "B2B Distributor",
+    "target_curve": "L3",
+    "target_band": [65.0, 80.0],
+    "latest_scan": null,
+    "demo_status": "in_progress"
+  },
+  {
+    "id": "pipeline-zoro",
+    "slug": "zoro",
+    "name": "Zoro",
+    "domain": "zoro.com",
+    "archetype": "B2B Distributor",
+    "target_curve": "L3",
+    "target_band": [65.0, 80.0],
+    "latest_scan": null,
+    "demo_status": "in_progress"
+  }
+]

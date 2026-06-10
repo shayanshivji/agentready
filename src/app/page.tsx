@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 
 import { SiteNav } from "@/components/site-nav";
+import { demoStats } from "@/lib/brand-catalog";
 
 export const dynamic = "force-static";
 
@@ -43,11 +44,13 @@ const STEPS = [
   },
 ];
 
+const stats = demoStats();
+
 const STATS = [
-  { value: "8", label: "Brands scored" },
-  { value: "35", label: "Best score / 100" },
-  { value: "0", label: "Reach Agent-Aware (40+)" },
-  { value: "8", label: "ACX dimensions" },
+  { value: String(stats.scoredCount), label: "Brands scored" },
+  { value: String(stats.inProgressCount), label: "In capture" },
+  { value: String(stats.bestScore), label: "Best score / 100" },
+  { value: "500", label: "ACX 500 target" },
 ];
 
 export default function LandingPage() {
@@ -154,18 +157,18 @@ export default function LandingPage() {
         <section className="mx-auto w-full max-w-6xl px-6 py-16">
           <div className="holo-border scanline flex flex-col items-center gap-5 overflow-hidden px-6 py-14 text-center">
             <h2 className="max-w-2xl font-display text-3xl font-bold leading-tight tracking-tight text-[var(--ink)] sm:text-4xl">
-              Eight benchmark brands. The best clears{" "}
-              <span className="text-gradient">35 / 100</span>. None reaches 40.
+              {stats.scoredCount} brands scored · {stats.inProgressCount} in capture. Best clears{" "}
+              <span className="text-gradient">{stats.bestScore} / 100</span>.
             </h2>
             <p className="max-w-xl text-[var(--ink-soft)]">
-              See it for yourself — replay any brand&apos;s full diagnostic, from probe
+              Explore the ACX 500 preview leaderboard — replay any scored diagnostic from probe
               sweep to board-ready scorecard.
             </p>
             <Link
-              href="/app"
+              href="/app#acx500"
               className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-violet-500 px-6 py-3.5 text-sm font-semibold text-[#04060f] shadow-[0_0_36px_-6px_var(--glow-cyan)] transition hover:brightness-110"
             >
-              Launch the diagnostic
+              View ACX 500 preview
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
           </div>
