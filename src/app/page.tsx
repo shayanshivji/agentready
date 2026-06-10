@@ -1,183 +1,251 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  BarChart3,
   Bot,
-  FileText,
-  Gauge,
-  Radar,
-  ScanLine,
+  Globe2,
+  LineChart,
+  ScanSearch,
+  ShieldCheck,
 } from "lucide-react";
 
+import { LandingFooter } from "@/components/landing-footer";
+import { PlatformLogoStrip, PlatformMarquee } from "@/components/platform-marquee";
 import { SiteNav } from "@/components/site-nav";
-import { demoStats } from "@/lib/brand-catalog";
+import { demoStats, sortScoredByRank, scoredBrands } from "@/lib/brand-catalog";
+import { bandByLabel } from "@/lib/dimensions";
 
 export const dynamic = "force-static";
 
-const STEPS = [
+const PRODUCTS = [
   {
-    n: "01",
-    icon: ScanLine,
-    title: "Probe sweep",
-    body:
-      "Fetches the brand's agent-facing surfaces — robots.txt, llms.txt, agents.md, /.well-known/*, products.json, sitemap, and live product pages.",
-  },
-  {
-    n: "02",
     icon: Bot,
-    title: "Agent panel",
+    title: "Agent Panel Analytics",
+    subtitle: "See how AI represents your brand in every conversation.",
     body:
-      "Runs a multi-agent shopping panel (ChatGPT, Claude, Perplexity, Gemini…) across L1 citation, L2 recommendation, and L3 transaction journeys.",
+      "Run a multi-agent shopping panel across ChatGPT, Claude, Perplexity, and Gemini. Measure citation, recommendation, and transaction outcomes with receipted evidence.",
+    href: "/app",
+    cta: "Learn more",
   },
   {
-    n: "03",
-    icon: Gauge,
-    title: "ACX scoring",
+    icon: ScanSearch,
+    title: "Technical Foundations",
+    subtitle: "Track how your site is crawled, indexed, and interpreted by AI.",
     body:
-      "Scores eight archetype-weighted dimensions — from product data to mandate resolution — into a single 0–100 ACX Index with a verdict band.",
+      "Outside-in probes for robots.txt, llms.txt, schema markup, AI search health, and crawlability — aligned to the firm's DOS GEO and GEO Accelerator stack.",
+    href: "/app",
+    cta: "Learn more",
   },
   {
-    n: "04",
-    icon: FileText,
-    title: "Board report",
+    icon: LineChart,
+    title: "ACX Scoring Engine",
+    subtitle: "One readiness score across eight agentic commerce dimensions.",
     body:
-      "Renders a board-ready scorecard: the verdict, the dimensional shape, and receipted agent-panel evidence for every score.",
+      "Archetype-weighted scoring from product data to mandate resolution. Every sub-score traces to captured probe and panel evidence.",
+    href: "/app",
+    cta: "Learn more",
   },
-];
-
-const stats = demoStats();
-
-const STATS = [
-  { value: String(stats.scoredCount), label: "Brands scored" },
-  { value: String(stats.inProgressCount), label: "In capture" },
-  { value: String(stats.bestScore), label: "Best score / 100" },
-  { value: "500", label: "ACX 500 target" },
+  {
+    icon: Globe2,
+    title: "ACX 500 Benchmark",
+    subtitle: "Understand where you stand against peers in your industry.",
+    body:
+      "Year-1 preview of the annual public index. Ranked leaderboard across seven commerce archetypes — scored entities only, pipeline shown as in capture.",
+    href: "/app#acx500",
+    cta: "View leaderboard",
+  },
 ];
 
 export default function LandingPage() {
+  const stats = demoStats();
+  const topFive = sortScoredByRank(scoredBrands()).slice(0, 5);
+
   return (
-    <div className="flex w-full flex-1 flex-col">
+    <div className="marketing-page flex w-full flex-1 flex-col">
       <SiteNav variant="landing" />
 
       <main className="flex flex-1 flex-col">
-        {/* --- Hero --------------------------------------------------------- */}
-        <section className="mx-auto flex w-full max-w-6xl flex-col items-center gap-8 px-6 pb-16 pt-20 text-center">
-          <span className="chip">
-            <Radar className="h-3.5 w-3.5 text-[var(--accent)]" />
-            The diagnostic for B2A commerce
-          </span>
+        {/* Hero — Profound-style platform rotation */}
+        <section className="mx-auto flex w-full max-w-6xl flex-col items-center gap-10 px-6 pb-20 pt-16 text-center sm:pt-24">
+          <PlatformMarquee />
 
-          <h1 className="max-w-4xl font-display text-5xl font-bold leading-[1.05] tracking-tight text-[var(--ink)] sm:text-7xl">
-            Is your brand{" "}
-            <span className="text-gradient neon">selectable by an agent?</span>
-          </h1>
-
-          <p className="max-w-2xl text-lg leading-relaxed text-[var(--ink-soft)]">
-            The agentic web is being built right now — and the brands you know
-            aren&apos;t ready to be transacted with. AgentReady scores any brand against
-            the 8-dimension <strong className="font-semibold text-[var(--ink)]">ACX Index</strong>,
-            runs a live multi-agent shopping panel, and renders a board-ready scorecard.
-          </p>
+          <div className="flex max-w-3xl flex-col gap-5">
+            <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-[var(--ink)] sm:text-6xl">
+              When the buyer is an agent, is your brand{" "}
+              <span className="text-[var(--accent)]">selectable</span> — and{" "}
+              <span className="text-[var(--accent)]">transactable</span>?
+            </h1>
+            <p className="text-lg leading-relaxed text-[var(--ink-soft)]">
+              Millions of purchases will flow through AI agents. AgentReady scores whether
+              your business is ready to be discovered, trusted, and bought from — not just
+              mentioned.
+            </p>
+          </div>
 
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/app"
-              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-violet-500 px-6 py-3.5 text-sm font-semibold text-[#04060f] shadow-[0_0_36px_-6px_var(--glow-cyan)] transition hover:brightness-110"
-            >
-              Launch the diagnostic
+            <Link href="/app" className="btn-primary group">
+              Get a demo
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
-            <a
-              href="#how"
-              className="inline-flex items-center gap-2 rounded-xl border border-[var(--border-strong)] bg-white/5 px-6 py-3.5 text-sm font-semibold text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              See how it works
-            </a>
+            <Link href="/app#acx500" className="btn-secondary">
+              View ACX 500 preview
+            </Link>
           </div>
 
-          {/* Proof stat band */}
-          <div className="mt-6 grid w-full max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
-            {STATS.map((s) => (
-              <div key={s.label} className="glass-card flex flex-col items-center gap-1 px-4 py-5">
-                <span className="font-display text-3xl font-bold tabular-nums text-gradient">
-                  {s.value}
-                </span>
-                <span className="text-[11px] uppercase tracking-[0.14em] text-[var(--ink-faint)]">
-                  {s.label}
-                </span>
-              </div>
-            ))}
+          <p className="max-w-xl text-sm text-[var(--ink-faint)]">
+            Reach commerce leaders who need a board-ready answer on agentic readiness —
+            outside-in, in four weeks.
+          </p>
+        </section>
+
+        {/* Platform strip */}
+        <section className="border-y border-[var(--border)] bg-white/[0.02] py-10">
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-4 px-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink-faint)]">
+              Get your brand measured by
+            </p>
+            <PlatformLogoStrip />
           </div>
         </section>
 
-        {/* --- How it works ------------------------------------------------- */}
-        <section
-          id="how"
-          className="mx-auto flex w-full max-w-6xl scroll-mt-24 flex-col gap-10 px-6 py-16"
-        >
-          <div className="flex flex-col items-center gap-3 text-center">
-            <span className="chip">The pipeline</span>
-            <h2 className="font-display text-3xl font-bold tracking-tight text-[var(--ink)] sm:text-4xl">
-              How the diagnostic works
-            </h2>
-            <p className="max-w-2xl text-[var(--ink-soft)]">
-              Four stages, fully receipted, outside-in — no integration, no access to the
-              brand&apos;s systems. Every score traces back to captured evidence.
-            </p>
-          </div>
+        {/* Value prop band */}
+        <section className="mx-auto w-full max-w-6xl px-6 py-20 text-center">
+          <h2 className="font-display text-3xl font-semibold tracking-tight text-[var(--ink)] sm:text-4xl">
+            Scale readiness, not guesswork
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-[var(--ink-soft)]">
+            AgentReady is the full-stack diagnostic for the agentic commerce era.
+            Understand, score, prioritize, and report — with evidence your board can fund.
+          </p>
+        </section>
 
-          <ol className="relative grid gap-4 md:grid-cols-4">
-            {/* connector line */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute left-0 right-0 top-[3.25rem] hidden h-px bg-gradient-to-r from-transparent via-[var(--border-strong)] to-transparent md:block"
-            />
-            {STEPS.map((step) => {
-              const Icon = step.icon;
+        {/* Product grid — Profound platform modules */}
+        <section id="platform" className="mx-auto w-full max-w-6xl scroll-mt-24 px-6 pb-20">
+          <div className="grid gap-5 md:grid-cols-2">
+            {PRODUCTS.map((p) => {
+              const Icon = p.icon;
               return (
-                <li key={step.n} className="glass-card relative flex flex-col gap-3 p-5">
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border-strong)] bg-gradient-to-br from-cyan-500/20 to-violet-500/20 text-[var(--accent)] shadow-[0_0_22px_-8px_var(--glow-cyan)]">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="font-display text-2xl font-bold text-white/10">
-                      {step.n}
-                    </span>
+                <article key={p.title} className="product-card group flex flex-col gap-4 p-8">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[var(--border)] bg-white/[0.04] text-[var(--ink)]">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-display text-base font-semibold text-[var(--ink)]">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-[var(--ink-soft)]">{step.body}</p>
-                </li>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="font-display text-xl font-semibold text-[var(--ink)]">
+                      {p.title}
+                    </h3>
+                    <p className="text-sm font-medium text-[var(--accent)]">{p.subtitle}</p>
+                    <p className="text-sm leading-relaxed text-[var(--ink-soft)]">{p.body}</p>
+                  </div>
+                  <Link
+                    href={p.href}
+                    className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-[var(--ink)] transition group-hover:gap-2"
+                  >
+                    {p.cta}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </article>
               );
             })}
-          </ol>
+          </div>
         </section>
 
-        {/* --- Closing CTA -------------------------------------------------- */}
-        <section className="mx-auto w-full max-w-6xl px-6 py-16">
-          <div className="holo-border scanline flex flex-col items-center gap-5 overflow-hidden px-6 py-14 text-center">
-            <h2 className="max-w-2xl font-display text-3xl font-bold leading-tight tracking-tight text-[var(--ink)] sm:text-4xl">
-              {stats.scoredCount} brands scored · {stats.inProgressCount} in capture. Best clears{" "}
-              <span className="text-gradient">{stats.bestScore} / 100</span>.
+        {/* Mini leaderboard preview */}
+        <section className="border-y border-[var(--border)] bg-white/[0.02] py-16">
+          <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 lg:flex-row lg:items-start lg:justify-between">
+            <div className="max-w-md flex-shrink-0">
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--ink-faint)]">
+                ACX 500 · Preview
+              </span>
+              <h2 className="mt-2 font-display text-2xl font-semibold text-[var(--ink)] sm:text-3xl">
+                Where you stand in agentic commerce
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--ink-soft)]">
+                {stats.scoredCount} companies scored · {stats.inProgressCount} in active
+                capture · {stats.queuedCount} queued for annual publication. Scores published
+                only with receipted evidence.
+              </p>
+              <Link href="/app#acx500" className="btn-primary group mt-6 inline-flex">
+                Explore full leaderboard
+                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+            <div className="min-w-0 flex-1 overflow-hidden rounded-2xl border border-[var(--border)] bg-black/30">
+              <table className="w-full text-left text-sm">
+                <thead>
+                  <tr className="border-b border-[var(--border)] text-[10px] uppercase tracking-wider text-[var(--ink-faint)]">
+                    <th className="px-4 py-3 font-semibold">#</th>
+                    <th className="px-4 py-3 font-semibold">Company</th>
+                    <th className="px-4 py-3 text-right font-semibold">ACX</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {topFive.map((b, i) => {
+                    const band = bandByLabel(b.latest_scan?.band ?? null);
+                    return (
+                      <tr
+                        key={b.slug}
+                        className="border-b border-[var(--border)]/50 last:border-0"
+                      >
+                        <td className="px-4 py-3 font-mono text-xs text-[var(--ink-faint)]">
+                          {i + 1}
+                        </td>
+                        <td className="px-4 py-3 font-medium text-[var(--ink)]">{b.name}</td>
+                        <td
+                          className="px-4 py-3 text-right font-display font-semibold tabular-nums"
+                          style={{ color: band?.color }}
+                        >
+                          {b.latest_scan?.total_score?.toFixed(1)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        {/* Finding quote */}
+        <section className="mx-auto w-full max-w-3xl px-6 py-20 text-center">
+          <blockquote className="font-display text-2xl font-medium leading-snug text-[var(--ink)] sm:text-3xl">
+            &ldquo;Agents can cite you. They cannot transact with you.&rdquo;
+          </blockquote>
+          <p className="mt-4 text-sm text-[var(--ink-soft)]">
+            Headline finding from {stats.scoredCount} benchmark brands · none cleared
+            Agent-Aware (40+)
+          </p>
+        </section>
+
+        {/* Lead gen — Profound AEO Report box */}
+        <section id="how" className="mx-auto w-full max-w-6xl scroll-mt-24 px-6 pb-20">
+          <div className="report-cta flex flex-col items-center gap-6 rounded-3xl border border-[var(--border)] bg-gradient-to-b from-white/[0.06] to-transparent px-6 py-14 text-center sm:px-12">
+            <BarChart3 className="h-10 w-10 text-[var(--accent)]" />
+            <h2 className="max-w-xl font-display text-2xl font-semibold text-[var(--ink)] sm:text-3xl">
+              Get your free ACX readiness snapshot
             </h2>
-            <p className="max-w-xl text-[var(--ink-soft)]">
-              Explore the ACX 500 preview leaderboard — replay any scored diagnostic from probe
-              sweep to board-ready scorecard.
+            <p className="max-w-lg text-sm text-[var(--ink-soft)]">
+              Discover how your brand performs against agents — and uncover the gaps
+              blocking transaction readiness.
             </p>
-            <Link
-              href="/app#acx500"
-              className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-violet-500 px-6 py-3.5 text-sm font-semibold text-[#04060f] shadow-[0_0_36px_-6px_var(--glow-cyan)] transition hover:brightness-110"
-            >
-              View ACX 500 preview
+            <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[var(--ink-soft)]">
+              {["ACX score", "Agent panel evidence", "Peer benchmark", "Board report"].map(
+                (item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <ShieldCheck className="h-4 w-4 text-[var(--accent-3)]" />
+                    {item}
+                  </li>
+                ),
+              )}
+            </ul>
+            <Link href="/app" className="btn-primary group mt-2">
+              Analyze my brand
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </Link>
           </div>
         </section>
-
-        <footer className="mx-auto w-full max-w-6xl border-t border-[var(--border)] px-6 py-6 text-xs text-[var(--ink-faint)]">
-          AgentReady · v0.4.0 · McKinsey 2026 Innovation Olympics · CONFIDENTIAL
-        </footer>
       </main>
+
+      <LandingFooter />
     </div>
   );
 }
